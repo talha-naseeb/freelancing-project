@@ -1,0 +1,7 @@
+.threedots:after {
+  content: "\2807";
+  font-size: 30px;
+  text-decoration: none;
+  color: #8a8787;
+
+}

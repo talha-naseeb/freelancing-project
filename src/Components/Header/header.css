@@ -1,0 +1,44 @@
+.navbar-toggler {
+  border: none !important;
+}
+
+.user_settings .dropdown-toggle span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user_settings .dropdown-toggle::after {
+  content: none;
+  border: none !important;
+}
+
+.navLinks {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #ffffff;
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.no-hover:hover {
+  border-bottom: none;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+.offcanvas {
+  background-color: #1b2020 !important;
+}
+
+

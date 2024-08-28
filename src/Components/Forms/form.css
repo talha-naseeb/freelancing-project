@@ -1,0 +1,171 @@
+.MainDiv {
+  background-image: url("../../assets/images/backGrounImage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.nextButton {
+  width: 100%;
+  background-color: #ff5757;
+  margin-top: 3rem;
+  padding: 10px !important;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #474949 !important;
+}
+
+@media (max-width: 568px) {
+  .nextButton {
+    margin-top: 1rem;
+  }
+}
+
+.form-control {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+}
+
+.form-select {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+}
+
+.SpanRequired {
+  color: white !important;
+  margin: 0px 5px;
+}
+
+.form-label {
+  color: white ;
+}
+
+span {
+  color: #ff5757 !important;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.299) !important;
+  opacity: 0.9 !important;
+}
+
+.landmark-selector {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #474949;
+  border-radius: 50px;
+}
+
+.icon-container {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.icon-container:hover,
+.icon-container.selected {
+  background-color: #ff5757;
+  color: white;
+  border-radius: 50px;
+  transform: scale(1.1);
+}
+
+.icon-container span {
+  display: block;
+  margin-top: 8px;
+}
+
+.image-preview {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.images-size {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #ff5757;
+}
+
+@media (max-width: 567px) {
+  .images-size {
+    max-height: 50px;
+    max-width: 50px;
+  }
+}
+
+.Image-Input {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.TransactionType {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:not(.checked) {
+  border-color: #ffffff;
+  background-color: transparent;
+  box-shadow: none;
+  height: 20px;
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: none;
+  background-color: #ff5757;
+  border: none;
+}
+
+.ThankyouServices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ThankyouServices:hover {
+  color: #ff5757;
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #ff5757;
+  color: #474949;
+  padding: 10px;
+  border-radius: 5px;
+}

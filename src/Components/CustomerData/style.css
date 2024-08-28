@@ -1,0 +1,155 @@
+.userProfile-form {
+  border-radius: 6px;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  border-radius: 40px;
+  color: #fff;
+  margin: auto;
+}
+
+.form-static-text {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.filter-items {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    /* width: 70rem; */
+  }
+}
+
+.input-field {
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
+.input-field.active {
+  border-color: black;
+}
+
+.resetBtn {
+  border: 1px solid black;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  height: 40px;
+  width: 45%;
+}
+
+.resetBtn:hover {
+  border: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.applyBtn {
+  border: 1px solid rgb(12, 154, 215);
+  background-color: rgb(12, 154, 215);
+  border-radius: 6px;
+  width: 45%;
+  color: rgb(255, 255, 255);
+  height: 40px;
+}
+
+.applyBtn:hover {
+  background-color: #0979a9;
+  color: white;
+  border: #0979a9;
+}
+
+.applyBtn:disabled {
+  background-color: #889caa;
+  border: #889caa;
+  color: #fff;
+}
+
+.modalCancelButton {
+  background-color: #fff;
+  border: 1px solid black;
+  width: 40%;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.modalCancelButton:hover {
+  border: 1px solid rgb(12, 154, 215);
+  background-color: rgb(12, 154, 215);
+  color: white;
+}
+
+.modal-footer {
+  justify-content: space-between;
+}
+
+.customerDataTable {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #1b2020;
+  color: #fff;
+  box-shadow: 0 2px 2px rgba(95, 92, 92, 0.2);
+}
+
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled {
+  border: 1px solid #ff5757 !important ;
+  color: #ff5757 !important;
+}
+
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
+  border: 1px solid #ff5757 !important ;
+  color: #fff !important;
+}
+
+.filterOpenBtn {
+  color: #ff5757 !important;
+  border: 1px solid #ff5757 !important ;
+}
+
+@media (max-width: 440px) {
+  .showHideNoDocs {
+    display: none;
+  }
+}
+
+/* .newComment {
+  position: absolute;
+  background-color: #474949 !important;
+  bottom: -10px;
+  left: 0;
+} */
+
+.customerFilterBtn {
+  background-color: #ff5757 !important;
+  border: #ff5757 !important;
+  color: #474949;
+  width: 100%;
+  padding: 10px;
+}
+
+.customerFilterReset {
+  background-color: #474949 !important;
+  border: #474949 !important;
+  color: #fff;
+  padding: 10px;
+    width: 100%;
+
+}

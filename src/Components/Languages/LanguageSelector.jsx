@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { TbWorld } from "react-icons/tb";
@@ -10,11 +10,18 @@ function LanguageSelector() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+    sessionStorage.setItem("selectedLanguage", lng);
   };
 
-  // Set initial text direction based on default language
-  document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
-  
+  useEffect(() => {
+    // Get the language from sessionStorage if available, otherwise default to i18n's current language
+    const savedLanguage = sessionStorage.getItem("selectedLanguage");
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage);
+      document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+    }
+  }, [i18n]);
+
   return (
     <Dropdown className='user_settings'>
       <Dropdown.Toggle variant='none' id='dropdownMenuButton4' style={{ border: "none" }}>

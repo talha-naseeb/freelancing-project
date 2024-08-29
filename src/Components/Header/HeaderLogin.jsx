@@ -18,7 +18,7 @@ function HeaderLogin() {
   return (
     <Navbar expand={expand} className='bg-inherit fixed-top headerStyles' sticky='top'>
       <Container fluid>
-        <Navbar.Brand as={Link} to='/home'>
+        <Navbar.Brand as={Link} to='#'>
           <img src={houseImage} alt='Image Loading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className='custom-toggler' />

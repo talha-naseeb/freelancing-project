@@ -169,3 +169,33 @@ input[type="checkbox"]:checked {
   padding: 10px;
   border-radius: 5px;
 }
+
+
+[dir="ltr"] .rtl-icon {
+  transform: scaleX(-1); 
+}
+
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #b9b8b8b3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.remove-image-btn:hover {
+  background: #a29898b3;
+}

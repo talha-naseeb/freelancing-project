@@ -6,9 +6,9 @@ import "./App.css";
 import MainPage from "./Components/MainPage/MainPage.jsx";
 import Login from "./Components/Login/Login.jsx";
 import CustomToaster from "./Components/Toaster/CustomToaster.jsx";
-import CustomerData from "./Components/CustomerData/CustomerData.jsx";
-import Thankyou from "./Components/CustomerData/Thankyou.jsx";
-import AllCustomersData from "./Components/CustomerData/AllCustomersData.jsx";
+import AllCustomersData from "./Components/Home/CustomerData/AllCustomersData.jsx";
+import CustomerData from "./Components/Home/CustomerData/CustomerData.jsx";
+import Thankyou from "./Components/Home/CustomerData/Thankyou.jsx";
 
 function App() {
   const [isToken, setIsToken] = useState(() => !!sessionStorage.getItem("token"));

@@ -43,8 +43,6 @@
   color: #474949 !important;
 }
 
-
-
 .loader-overlay {
   position: fixed;
   top: 0;
@@ -57,7 +55,6 @@
   align-items: center;
   z-index: 999999;
 }
-
 
 .loader {
   width: 8px;
@@ -82,4 +79,25 @@
     box-shadow: 20px 0 rgb(197, 36, 36), 40px 0 rgb(175, 41, 41), 60px 0 rgba(255, 255, 255, 0.25);
   }
 }
-    
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  padding-right: 40px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; 
+  color: #ff5757;
+}
+[dir="rtl"] .eye-icon {
+  right: auto;
+  left: 10px; 
+}

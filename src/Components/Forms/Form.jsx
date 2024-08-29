@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "../../Api/Api";
 import "./form.css";
@@ -12,6 +12,7 @@ import Header from "../Header/Header";
 import { IoChevronForward } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 
 function Form() {
   const fileInputRef = useRef(null);
@@ -34,6 +35,43 @@ function Form() {
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    const savedStep = localStorage.getItem("formStep");
+    const savedData = localStorage.getItem("formData");
+
+    if (savedStep && savedData) {
+      setFormStep(Number(savedStep));
+      const parsedData = JSON.parse(savedData);
+      setFormData(parsedData);
+
+      // Restore the values in the form fields
+      Object.keys(parsedData).forEach((key) => {
+        setValue(key, parsedData[key]);
+      });
+
+      // Restore the images and selected landmark
+      const savedImages = JSON.parse(localStorage.getItem("selectedImages"));
+      const savedDisplayedImages = JSON.parse(localStorage.getItem("displayedImages"));
+      const savedLandmark = localStorage.getItem("selectedLandmark");
+
+      if (savedImages && savedDisplayedImages) {
+        setSelectedImages(savedImages);
+        setDisplayedImages(savedDisplayedImages);
+      }
+      if (savedLandmark) {
+        setSelectedLandmark(savedLandmark);
+      }
+    }
+  }, [setValue]);
+
+  const saveToLocalStorage = (data, step) => {
+    localStorage.setItem("formData", JSON.stringify(data));
+    localStorage.setItem("formStep", step);
+    localStorage.setItem("selectedImages", JSON.stringify(selectedImages));
+    localStorage.setItem("displayedImages", JSON.stringify(displayedImages));
+    localStorage.setItem("selectedLandmark", selectedLandmark);
+  };
+
   const onImageChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
       const filesArray = Array.from(event.target.files).slice(0, 5);
@@ -53,6 +91,9 @@ function Form() {
 
           const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
           setSelectedImages([...selectedImages, ...trimmedImages]);
+
+          // Save to localStorage
+          saveToLocalStorage({ ...formData }, formStep);
         })
         .catch((error) => console.error("Error converting files to base64:", error));
     }
@@ -79,22 +120,32 @@ function Form() {
   const nextStep = (data) => {
     const newFormData = { ...formData, ...data };
     setFormData(newFormData);
-    setFormStep((current) => current + 1);
+    const nextStep = formStep + 1;
+    setFormStep(nextStep);
+
+    // Save to localStorage
+    saveToLocalStorage(newFormData, nextStep);
   };
 
   const prevStep = () => {
-    setFormStep((current) => current - 1);
+    const previousStep = formStep - 1;
+    setFormStep(previousStep);
+
+    // Save to localStorage
+    saveToLocalStorage(formData, previousStep);
   };
 
   const clearFileds = () => {
     setSelectedImages([]);
     setSelectedLandmark("");
-    setTransactionType("");
   };
 
   const handleSelectLandmark = (landmark) => {
     setSelectedLandmark(landmark);
     setValue("Landmark", landmark, { shouldValidate: true });
+
+    // Save to localStorage
+    saveToLocalStorage(formData, formStep);
   };
 
   const iconStyle = (landmark) => `icon-container ${selectedLandmark === landmark ? "selected" : ""}`;
@@ -113,13 +164,15 @@ function Form() {
     };
 
     try {
-      const response = await axios.post("/Customers/CreateCustomerData", apiData);
-      if (response.data.StatusCode === 200) {
-        const customerData = response.data.Data;
+      const response = await axios.post("/v1.0/prop-api/CreateCustomer", apiData);
+      if (response.data.statusCode === "1") {
+        const customerData = response.data.response;
         setFormStep((current) => current + 1);
         sessionStorage.setItem("customerData", customerData);
         navigate(`/customer-Data/:${customerData}`);
         clearFileds();
+        // Clear localStorage
+        localStorage.clear()
       } else {
         toast.error(t("Form.dataErr"));
       }
@@ -147,7 +200,7 @@ function Form() {
         <form onSubmit={handleSubmit(formStep < 4 ? nextStep : onSubmit)} className='w-100 max-w-lg p-4 sm:p-[3.5rem] text-white rounded'>
           {formStep > 0 && (
             <button type='button' onClick={prevStep} className='backButton'>
-              <IoChevronForward />
+              <IoChevronForward className='rtl-icon' />
             </button>
           )}
           {formStep === 0 && (

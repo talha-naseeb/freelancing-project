@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import LanguageSelector from "../Languages/LanguageSelector";
 import axios from "../../Api/Api";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 
 function Login({ onLogin }) {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -17,10 +18,10 @@ function Login({ onLogin }) {
     formState: { errors },
   } = useForm();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
 
   const onSubmit = async (data) => {
     setLoading(true);
-    console.log(data);
     try {
       const response = await axios.post("/Customers/Login", data);
       if (response.status === 200) {
@@ -41,6 +42,11 @@ function Login({ onLogin }) {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Function to toggle password visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
@@ -70,11 +76,27 @@ function Login({ onLogin }) {
                 })}
               />
             </div>
-            <div className='mb-3'>
+            <div className='mb-3 position-relative'>
               <label htmlFor='Password' className='form-label'>
                 {t("Login.Password")} <span className='required'>*</span>
               </label>
-              <input type='password' placeholder={t("Login.Password")} className={`form-control`} {...register("Password")} />
+              <div className='password-wrapper'>
+                <input
+                  type={showPassword ? "text" : "password"} // Toggle input type between password and text
+                  placeholder={t("Login.Password")}
+                  className={`form-control`}
+                  {...register("Password")}
+                />
+                <span
+                  onClick={togglePasswordVisibility}
+                  className='eye-icon'
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle icon based on state */}
+                </span>
+              </div>
             </div>
             <div className='d-grid'>
               <button type='submit' className='btn-SignIn'>

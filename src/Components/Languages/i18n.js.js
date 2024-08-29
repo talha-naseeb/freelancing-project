@@ -3,6 +3,8 @@ import { initReactI18next } from "react-i18next";
 import translationsEN from "../../Json/En/translation.json";
 import translationsAR from "../../Json/Ar/translation.json";
 
+const storedLanguage = sessionStorage.getItem("selectedLanguage") || "ar";
+
 i18n.use(initReactI18next).init({
   resources: {
     en: {
@@ -12,10 +14,10 @@ i18n.use(initReactI18next).init({
       translation: translationsAR,
     },
   },
-  lng: "ar",
-  fallbackLng: "ar",
+  lng: storedLanguage, 
+  fallbackLng: "ar", 
   interpolation: {
-    escapeValue: false,
+    escapeValue: false, 
   },
 });
 

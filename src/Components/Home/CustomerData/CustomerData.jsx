@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import axios from "../../Api/Api";
+import axios from "../../../Api/Api";
 import { Col, Row, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
 import DownloadPdf from "./DownloadPdf";
 
 function CustomerData() {

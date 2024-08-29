@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../../Api/Api";
+import axios from "../../../Api/Api";
 import { IoIosCloudDownload } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ function DownloadPdf() {
   const GenerateDocument = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`/Customers/GenerateCustomerPdf?customerID=${customerID}`, {
+      const response = await axios.get(`/v1.0/prop-api/GenerateCustomerPdf?customerID=${customerID}`, {
         responseType: "arraybuffer",
       });
       if (response.status === 200) {

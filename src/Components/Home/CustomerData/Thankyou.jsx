@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { PiHandsPrayingDuotone } from "react-icons/pi";
 import { useTranslation } from "react-i18next";
-import "../Forms/form.css";
-import Header from "../Header/Header";
+import "../../Forms/form.css";
+import Header from "../../Header/Header";
 
 function Thankyou() {
   const { t } = useTranslation();

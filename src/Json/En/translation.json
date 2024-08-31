@@ -8,52 +8,73 @@
     "services": "Services",
     "aboutUs": "About Us",
     "contactUs": "Contact Us",
-    "CustomersData":"Customers Data",
+    "CustomersData": "Customers Data",
     "logout": "logout"
   },
+  "SignUp": {
+    "welcome": "Welcome to Sign Up",
+    "createAccount": "Create your account to get started",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "countryCode": "Country Code",
+    "mobileNumber": "Mobile Number",
+    "signUp": "Sign Up",
+    "fullNameRequired": "Full Name is required",
+    "emailRequired": "Email Address is required",
+    "countryCodeRequired": "Country Code is required",
+    "mobileNumberRequired": "Mobile Number is required",
+    "alreadyHaveAcc": "Already have an account?",
+    "logIn": "Log In",
+    "signUpSuccess": "Sign up successful! Welcome aboard.",
+    "signUpErr": "There was an error during sign up. Please try again.",
+    "signUpFailed": "Sign up failed. Please check your details and try again.",
+    "Codes": "Codes"
+  },
   "Form": {
+    "timeDistance":"Time distance",
     "Marketerdata": "Marketer data",
     "name": "Name",
-    "MobileNumber": "Mobile Number",
+    "MobileNumber": "Mobile number",
     "Falllicense": "Fall License Number",
     "Next": "Next",
-    "Dealtype": "Deal Type",
-    "SelectDeal": "Select Deal Type",
+    "Dealtype": "Deal type",
+    "SelectDeal": "Select deal type",
     "sale": "Sale",
     "Rent": "Rent",
-    "selectProperty": "Select Property Type",
+    "selectProperty": "Select property type",
     "land": "Land",
     "building": "Building",
     "Apartment": "Apartment",
     "House": "House",
     "Renthouse": "Rent house",
-    "propertyType": "Property Type",
+    "propertyType": "Property type",
     "date": "Date",
     "City": "City",
     "District": "District",
     "Roads": "Roads leading to the property",
-    "location": "Property Location",
-    "TotalArea": "Total Area",
+    "location": "Property location",
+    "TotalArea": "Total area",
     "landmarks": "Main landmarks around the property",
     "DisplayedPropertyNumber": "Displayed Property Number",
-    "propertyInfo": "Property Information",
+    "propertyInfo": "Property information",
     "PropertyPicture": "Property Picture",
     "Addpicproperty": "Add pictures for property",
-    "AdditionalDetails": "Additional Details",
-    "TransactionType": "Transaction Type",
-    "Sellinglimit": "Selling on the Limit",
-    "SellingPrice": "Selling on Price",
+    "AdditionalDetails": "Additional details",
+    "TransactionType": "Transaction type",
+    "Sellinglimit": "Selling on the limit",
+    "SellingPrice": "Selling on price",
     "sellingvalue": "The selling value of the property",
     "submit": "Submit",
     "Thankyou": "Thankyou",
-    "ChoosingService": "For Choosing our Service",
+    "ChoosingService": "For choosing our service",
     "DownloadPDF": "Download PDF",
     "Advertisementdata": "Advertisement data",
     "Back": "Back",
-    "imageErr":"You can only add up to 5 images.",
-    "dataErr":"Try Again Later!"
+    "imageErr": "You can only add up to 5 images.",
+    "dataErr": "Try again later!"
   },
   "placeholder": {
+    "timeDistance":"Enter time of distance from landmark",
     "name": "Enter your name",
     "Mobile": "Enter your mobile number",
     "EnterLicense": "Enter Fall license number",
@@ -82,7 +103,8 @@
     "Displayed": "Displayed property number is required",
     "TransactionType": "Transaction type is required",
     "PropertyPicture": "Property picture is required ",
-    "numericValues": "Only numeric values are allowed"
+    "numericValues": "Only numeric values are allowed",
+    "timeDistance": "Time distance is required"
   },
 
   "Login": {
@@ -97,7 +119,9 @@
     "invalidEmail": "Invalid email address",
     "passRequired": "Password is required",
     "validPass": "Password must be at least 8 characters",
-    "sigIn": "Sign In"
+    "sigIn": "Sign In",
+    "signUp": "Register Now",
+    "dontHaveAcc": "Don't have an account yet ?"
   },
   "CustomerData": {
     "CustomerData": "Customer Data",
@@ -126,6 +150,20 @@
   "customerFilter": {
     "reset": "Reset",
     "apply": "Apply",
-    "filter":"Filter"
+    "filter": "Filter"
+  },
+  "Sidebar": {
+    "uploadDoc": "Upload Document",
+    "Dashboard": "Dashboard",
+    "Documents": "Documents"
+  },
+  "header": {
+    "settings": "Settings",
+    "home": "Home",
+    "welcome": "Welcome",
+    "profileSettings": "Profile settings",
+    "logout": "Logout",
+    "logoutSuccessfully": "Logged out successfully",
+    "errLogoutOut": "Error logging out"
   }
 }

@@ -1,3 +1,11 @@
+.nav-link {
+  text-decoration: none !important;
+}
+
+.nav-link:hover {
+  border-bottom: none !important;
+}
+
 .navbar-toggler {
   border: none !important;
 }
@@ -7,11 +15,13 @@
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
+  transition: none !important;
 }
 
 .user_settings .dropdown-toggle::after {
   content: none;
   border: none !important;
+  transition: none !important;
 }
 
 .navLinks {
@@ -41,4 +51,99 @@
   background-color: #1b2020 !important;
 }
 
+/* Update icon-wrapper class */
+.icon-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  color: #1b2020 !important;
+  text-decoration: none !important;
+  transition: none !important;
+}
+.icon-wrapper .nav-link {
+  text-decoration: none !important;
+}
 
+.icon-wrapper span {
+  color: #1b2020 !important;
+}
+
+/* Add media query to hide span elements on small devices */
+@media (max-width: 576px) {
+  .icon-wrapper span {
+    display: none;
+  }
+  .icon-wrapper-heading {
+    margin-right: -80px !important;
+  }
+  .icon-wrapper-heading span {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 35%;
+    color: #1b2020 !important;
+    text-decoration: none !important;
+  }
+}
+
+.accountImage {
+  border-radius: 50%;
+  width: 40px;
+  border: 1px solid #171717;
+  height: 40px;
+  text-decoration: none !important;
+}
+
+.toggle-bar {
+  border: none !important;
+  outline: none !important;
+}
+
+.toggle-bar:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* user account */
+.accountImage {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #171717;
+}
+
+.user_settings .dropdown-toggle span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: none !important;
+}
+
+.user_setting .dropdown-toggle span {
+  overflow: hidden;
+  transition: none !important;
+}
+
+.header .dropdown-item {
+  color: white;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  transition: none !important;
+}
+
+.user_settings .dropdown-toggle::after,
+.user_setting .dropdown-toggle::after,
+.email_notify .dropdown-toggle::after,
+.notification_bell .dropdown-toggle::after,
+.activity_settings .dropdown-toggle::after {
+  content: none;
+  transition: none !important;
+}
+
+.submenus a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}

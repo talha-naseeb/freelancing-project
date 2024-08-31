@@ -1,0 +1,128 @@
+.Parentcontainer {
+  display: flex;
+}
+
+.mainbody {
+  flex: 1;
+  background-color: rgb(238, 238, 238);
+  overflow-y: auto;
+}
+.sidebar {
+  color: #fff;
+  transition: all 0.2s;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+  justify-content: space-between;
+}
+
+.bars {
+  display: flex;
+  font-size: 25px;
+}
+.menuLinks {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+  align-items: center;
+  text-decoration: none;
+}
+.menuLinks.active {
+  background: #3a94ba;
+  color: #fff;
+  transition: all 0.6s;
+  border-left: 2px solid #fff;
+}
+.DeclinemenuLinks {
+  display: flex;
+  color: #fff;
+  padding: 10px 10px;
+  gap: 15px;
+  transition: all 0.5s;
+  align-items: center;
+  text-decoration: none;
+}
+.SubmenuLinks {
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+  align-items: center;
+  text-decoration: none;
+}
+
+.temp1 {
+  border: none;
+}
+
+.menuLinks:hover {
+  background: #46494a;
+  color: #fff;
+  transition: all 0.6s;
+  border-left: 2px solid #fff;
+}
+.DeclinemenuLinks:hover {
+  background: #3a94ba;
+  color: #fff;
+  transition: all 0.6s;
+  border-left: 2px solid #fff;
+}
+
+.submenu-item:hover {
+  background: #3a94ba;
+  color: #fff;
+  transition: all 0.6s;
+  border-left: 2px solid #fff;
+}
+.submenu-item {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 5px;
+  transition: all 0.5s;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.Menuactive {
+  background: #46494a;
+  color: #fff;
+  border-left: 2px solid #fff;
+}
+
+.Menuicons,
+.link_text {
+  font-size: 16px;
+}
+
+.dropdown-togle::after {
+  content: none;
+}
+
+.UploadMenuLink {
+  text-decoration: none;
+  background-color: #0979a9;
+  transition: all 0.6s;
+}
+
+.UploadDocMenu {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px 0px;
+  margin: 0px 10px;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.6s;
+}

@@ -182,20 +182,25 @@ input[type="checkbox"]:checked {
   margin-right: 10px;
 }
 
-.remove-image-btn {
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.delete-button {
   position: absolute;
   top: 5px;
   right: 5px;
-  background: #b9b8b8b3;
-  color: white;
+  background-color: #c9bdbd;
+  color: rgb(11, 7, 7);
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 1;
+  padding: 2px;
 }
 
-.remove-image-btn:hover {
-  background: #a29898b3;
+.delete-button:hover{
+  background-color: #883030;
+  color: #ffffff;
 }

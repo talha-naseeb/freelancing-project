@@ -14,7 +14,6 @@ function LanguageSelector() {
   };
 
   useEffect(() => {
-    // Get the language from sessionStorage if available, otherwise default to i18n's current language
     const savedLanguage = sessionStorage.getItem("selectedLanguage");
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);

@@ -12,6 +12,7 @@
     "CustomersData": "بيانات العملاء"
   },
   "Form": {
+    "timeDistance": "مدة المسافة",
     "Marketerdata": "بيانات التسويق",
     "name": "الاسم",
     "MobileNumber": "رقم الجوال",
@@ -54,6 +55,7 @@
     "dataErr": "حاول مرة أخرى لاحقًا!"
   },
   "placeholder": {
+    "timeDistance": "أدخل مدة المسافة من المعلم",
     "name": "ادخل اسمك",
     "Mobile": "ادخل رقم هاتفك المحمول",
     "EnterLicense": "ادخل رقم الرخصة السقوط",
@@ -82,7 +84,8 @@
     "Displayed": "رقم العقار المعروض مطلوب",
     "TransactionType": "نوع العملية مطلوب",
     "PropertyPicture": "صورة العقار مطلوبة",
-    "numericValues": "يُسمح فقط بالقيم الرقمية"
+    "numericValues": "يُسمح فقط بالقيم الرقمية",
+    "timeDistance": "مدة المسافة مطلوبة"
   },
   "Login": {
     "loginSuccess": "تم تسجيل الدخول بنجاح",
@@ -96,7 +99,28 @@
     "invalidEmail": "عنوان بريد إلكتروني غير صالح",
     "passRequired": "كلمة المرور مطلوبة",
     "validPass": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
-    "sigIn": "تسجيل الدخول"
+    "sigIn": "تسجيل الدخول",
+    "dontHaveAcc": "ليس لديك حساب بعد؟ سجل الآن",
+    "signUp": "التسجيل"
+  },
+  "SignUp": {
+    "welcome": "مرحبًا بالتسجيل",
+    "createAccount": "أنشئ حسابك للبدء",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "countryCode": "رمز الدولة",
+    "mobileNumber": "رقم الهاتف المحمول",
+    "signUp": "إنشاء حساب",
+    "fullNameRequired": "الاسم الكامل مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "countryCodeRequired": "رمز الدولة مطلوب",
+    "mobileNumberRequired": "رقم الهاتف المحمول مطلوب",
+    "alreadyHaveAcc": "هل لديك حساب بالفعل؟",
+    "logIn": "تسجيل الدخول",
+    "signUpSuccess": "تم التسجيل بنجاح! أهلاً وسهلاً.",
+    "signUpErr": "حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.",
+    "signUpFailed": "فشل التسجيل. يرجى التحقق من التفاصيل والمحاولة مرة أخرى.",
+    "Codes": "الأكواد"
   },
   "CustomerData": {
     "CustomerData": "بيانات العميل",
@@ -126,5 +150,20 @@
     "reset": "إعادة تعيين",
     "apply": "تطبيق",
     "filter": "تصفية"
+  },
+  "Sidebar": {
+    "OnlyView": "يمكنك فقط عرض هذا الحساب!",
+    "uploadDoc": "تحميل مستند",
+    "Dashboard": "لوحة التحكم",
+    "Documents": "المستندات"
+  },
+  "header": {
+    "settings": "الإعدادات",
+    "home": "الصفحة الرئيسية",
+    "welcome": "مرحباً",
+    "profileSettings": "إعدادات الملف الشخصي",
+    "logout": "تسجيل الخروج",
+    "logoutSuccessfully": "تم تسجيل الخروج بنجاح",
+    "errLogoutOut": "حدث خطأ أثناء تسجيل الخروج"
   }
 }

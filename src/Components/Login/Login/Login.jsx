@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
-import LanguageSelector from "../Languages/LanguageSelector";
-import axios from "../../Api/Api";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
+import axios from "../../../Api/Api"
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Nav } from "react-bootstrap";
+import LanguageSelector from "../../Languages/LanguageSelector";
 
 function Login({ onLogin }) {
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -18,7 +19,7 @@ function Login({ onLogin }) {
     formState: { errors },
   } = useForm();
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -94,7 +95,7 @@ function Login({ onLogin }) {
                     cursor: "pointer",
                   }}
                 >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle icon based on state */}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
               </div>
             </div>
@@ -102,6 +103,12 @@ function Login({ onLogin }) {
               <button type='submit' className='btn-SignIn'>
                 {t("Login.sigIn")}
               </button>
+            </div>
+            <div style={{ marginTop: "30px" }} className='d-flex align-items-center justify-content-start'>
+              {t("Login.dontHaveAcc")}
+              <Nav.Link as={Link} to='/auth/admin/register' className='link-item fw-bold px-2'>
+                {t("Login.signUp")}
+              </Nav.Link>
             </div>
           </div>
         </form>

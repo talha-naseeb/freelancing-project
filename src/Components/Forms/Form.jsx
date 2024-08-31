@@ -12,7 +12,7 @@ import Header from "../Header/Header";
 import { IoChevronForward } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { MdDeleteOutline } from "react-icons/md";
 
 function Form() {
   const fileInputRef = useRef(null);
@@ -74,22 +74,22 @@ function Form() {
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
-      const filesArray = Array.from(event.target.files).slice(0, 5);
-      const totalImages = selectedImages.length + filesArray.length;
+      const filesArray = Array.from(event.target.files);
+      const availableSlots = 8 - selectedImages.length;
 
-      if (totalImages > 5) {
+      if (filesArray.length > availableSlots) {
         toast.error(t("Form.imageErr"));
         return;
       }
+
       const conversionPromises = filesArray.map((file) => convertToBase64(file));
 
       Promise.all(conversionPromises)
         .then((base64Files) => {
           const newDisplayedImages = [...displayedImages, ...base64Files];
+          const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
 
           setDisplayedImages(newDisplayedImages);
-
-          const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
           setSelectedImages([...selectedImages, ...trimmedImages]);
 
           // Save to localStorage
@@ -98,6 +98,33 @@ function Form() {
         .catch((error) => console.error("Error converting files to base64:", error));
     }
   };
+
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files.length > 0) {
+  //     const filesArray = Array.from(event.target.files).slice(0, 5);
+  //     const totalImages = selectedImages.length + filesArray.length;
+
+  //     if (totalImages > 5) {
+  //       toast.error(t("Form.imageErr"));
+  //       return;
+  //     }
+  //     const conversionPromises = filesArray.map((file) => convertToBase64(file));
+
+  //     Promise.all(conversionPromises)
+  //       .then((base64Files) => {
+  //         const newDisplayedImages = [...displayedImages, ...base64Files];
+
+  //         setDisplayedImages(newDisplayedImages);
+
+  //         const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
+  //         setSelectedImages([...selectedImages, ...trimmedImages]);
+
+  //         // Save to localStorage
+  //         saveToLocalStorage({ ...formData }, formStep);
+  //       })
+  //       .catch((error) => console.error("Error converting files to base64:", error));
+  //   }
+  // };
 
   function convertToBase64(file) {
     return new Promise((resolve, reject) => {
@@ -161,6 +188,9 @@ function Form() {
       Image3: trimmedImages[2] || "",
       Image4: trimmedImages[3] || "",
       Image5: trimmedImages[4] || "",
+      Image6: trimmedImages[4] || "",
+      Image7: trimmedImages[4] || "",
+      Image8: trimmedImages[4] || "",
     };
 
     try {
@@ -172,7 +202,7 @@ function Form() {
         navigate(`/customer-Data/:${customerData}`);
         clearFileds();
         // Clear localStorage
-        localStorage.clear()
+        localStorage.clear();
       } else {
         toast.error(t("Form.dataErr"));
       }
@@ -187,6 +217,35 @@ function Form() {
       setLoading(false);
     }
   };
+
+  const deleteImage = (index) => {
+    // Create copies of the current state arrays
+    const newDisplayedImages = [...displayedImages];
+    const newSelectedImages = [...selectedImages];
+
+    // Remove the image at the specified index
+    newDisplayedImages.splice(index, 1);
+    newSelectedImages.splice(index, 1);
+
+    // Update the state with the new arrays
+    setDisplayedImages(newDisplayedImages);
+    setSelectedImages(newSelectedImages);
+
+    // If no images are left, clear the storage for images
+    if (newDisplayedImages.length === 0) {
+      localStorage.removeItem("selectedImages");
+      localStorage.removeItem("displayedImages");
+    } else {
+      // Save the updated arrays back to local storage
+      localStorage.setItem("selectedImages", JSON.stringify(newSelectedImages));
+      localStorage.setItem("displayedImages", JSON.stringify(newDisplayedImages));
+    }
+
+    // Save the form data and step, ensuring consistency
+    saveToLocalStorage({ ...formData }, formStep);
+  };
+
+  const today = new Date().toISOString().split("T")[0];
 
   return (
     <div className='MainDiv'>
@@ -259,8 +318,8 @@ function Form() {
                 <label htmlFor='AdvertisementDate' className='form-label text-[#ff5757]'>
                   {t("Form.date")}
                 </label>
-                <input {...register("AdvertisementDate", { required: t("fieldErrors.date") })} id='AdvertisementDate' type='date' className='form-control' />
-                {errors.date && <span>{errors.date.message}</span>}
+                <input {...register("AdvertisementDate", { required: t("fieldErrors.date") })} id='AdvertisementDate' type='date' className='form-control' min={today} />
+                {errors.AdvertisementDate?.type === "required" && <span>{errors.AdvertisementDate.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -278,7 +337,7 @@ function Form() {
                   <option value='Commercial'>{t("Form.House")}</option>
                   <option value='Commercial'>{t("Form.Renthouse")}</option>
                 </select>
-                {errors.propertyType && <span>{errors.propertyType.message}</span>}
+                {errors.PropertyType?.type === "required" && <span>{errors.PropertyType.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -293,7 +352,7 @@ function Form() {
                   <option value='Sale'>{t("Form.sale")}</option>
                   <option value='Rent'>{t("Form.Rent")}</option>
                 </select>
-                {errors.dealType && <span>{errors.dealType.message}</span>}
+                {errors.DealType?.type === "required" && <span>{errors.DealType.message}</span>}
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
@@ -313,7 +372,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("City", { required: t("fieldErrors.city") })} id='City' placeholder={t("placeholder.city")} className='form-control' />
-                {errors.city && <span>{errors.city.message}</span>}
+                {errors.City?.type === "required" && <span>{errors.City.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -322,7 +381,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("District", { required: t("fieldErrors.district") })} id='District' placeholder={t("placeholder.district")} className='form-control' />
-                {errors.district && <span>{errors.district.message}</span>}
+                {errors.District?.type === "required" && <span>{errors.District.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -331,7 +390,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("LeadingProperty", { required: t("fieldErrors.roads") })} id='LeadingProperty' placeholder={t("placeholder.roads")} className='form-control' />
-                {errors.roads && <span>{errors.roads.message}</span>}
+                {errors.LeadingProperty?.type === "required" && <span>{errors.LeadingProperty.message}</span>}
               </div>
 
               <button type='submit' className='nextButton'>
@@ -351,7 +410,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("PropertyLocation", { required: t("fieldErrors.Property") })} id='PropertyLocation' placeholder={t("placeholder.Property")} className='form-control' />
-                {errors.propertyLocation && <span>{errors.propertyLocation.message}</span>}
+                {errors.PropertyLocation?.type === "required" && <span>{errors.PropertyLocation.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -360,7 +419,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("TotalArea", { required: t("fieldErrors.area") })} id='TotalArea' placeholder={t("placeholder.area")} className='form-control' />
-                {errors.totalArea && <span>{errors.totalArea.message}</span>}
+                {errors.TotalArea?.type === "required" && <span>{errors.TotalArea.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -391,7 +450,19 @@ function Form() {
               </div>
 
               <input type='hidden' {...register("Landmark", { required: t("fieldErrors.landmarks") })} />
-              {errors.landmark && <span className='error'>{errors.landmark.message}</span>}
+              {errors.Landmark?.type === "required" && <span className='error'>{errors.Landmark.message}</span>}
+
+              {/* Conditionally render the Time Distance field */}
+              {selectedLandmark && (
+                <div className='mb-3'>
+                  <label htmlFor='TimeDistance' className='form-label text-[#ff5757]'>
+                    {t("Form.timeDistance")}
+                    <span className='SpanRequired'>*</span>
+                  </label>
+                  <input {...register("TimeDistance", { required: t("fieldErrors.timeDistance") })} id='TimeDistance' placeholder={t("placeholder.timeDistance")} className='form-control' />
+                  {errors.TimeDistance?.type === "required" && <span>{errors.TimeDistance.message}</span>}
+                </div>
+              )}
 
               <div className='mb-3'>
                 <label htmlFor='PropertyNo' className='form-label text-[#ff5757]'>
@@ -399,7 +470,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("PropertyNo", { required: t("fieldErrors.Displayed") })} id='PropertyNo' placeholder={t("placeholder.Displayed")} className='form-control' />
-                {errors.displayedPropertyNumber && <span>{errors.displayedPropertyNumber.message}</span>}
+                {errors.PropertyNo?.type === "required" && <span>{errors.PropertyNo.message}</span>}
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
@@ -424,7 +495,12 @@ function Form() {
                 <input type='file' multiple accept='image/*' onChange={onImageChange} className='form-control' style={{ display: "none" }} ref={fileInputRef} />
                 <span className='image-preview'>
                   {displayedImages.map((image, index) => (
-                    <img key={index} src={image} alt='Property' className='images-size' />
+                    <div key={index} className='image-container'>
+                      <img src={image} alt='Property' className='images-size' />
+                      <button type='button' onClick={() => deleteImage(index)} className='delete-button'>
+                        <MdDeleteOutline className='p-0' />
+                      </button>
+                    </div>
                   ))}
                 </span>
               </div>
@@ -448,6 +524,7 @@ function Form() {
                   {t("Form.sellingvalue")}
                 </label>
                 <input {...register("PropertyValue")} id='PropertyValue' placeholder={t("placeholder.Addselling")} className='form-control' />
+                {errors.PropertyValue?.type === "required" && <span>{errors.PropertyValue.message}</span>}
               </div>
 
               <button type='submit' className='nextButton'>

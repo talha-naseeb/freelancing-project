@@ -79,6 +79,29 @@
     box-shadow: 20px 0 rgb(197, 36, 36), 40px 0 rgb(175, 41, 41), 60px 0 rgba(255, 255, 255, 0.25);
   }
 }
+.loader1 {
+  width: 8px;
+  height: 30px;
+  display: block;
+  margin: auto;
+  left: -20px;
+  position: relative;
+  border-radius: 4px;
+  box-sizing: border-box;
+  animation: animloader1 1s linear infinite alternate;
+}
+
+@keyframes animloader1 {
+  0% {
+    box-shadow: 20px 0 rgba(17, 49, 74, 0.189), 40px 0 rgb(43, 63, 111), 60px 0 rgb(22, 89, 152);
+  }
+  50% {
+    box-shadow: 20px 0 rgb(42, 98, 141), 40px 0 rgba(255, 255, 255, 0.25), 60px 0 rgb(27, 97, 138);
+  }
+  100% {
+    box-shadow: 20px 0 rgb(36, 103, 197), 40px 0 rgb(41, 137, 175), 60px 0 rgba(255, 255, 255, 0.25);
+  }
+}
 
 .password-wrapper {
   position: relative;

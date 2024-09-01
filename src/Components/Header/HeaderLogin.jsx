@@ -7,15 +7,15 @@ import { useTranslation } from "react-i18next";
 import { IoSettingsOutline } from "react-icons/io5";
 import logoutIcon from "../../assets/images/logout.svg";
 import profileIcon from "../../assets/images/Profile.svg";
-import userImg from "../../assets/images/defaultImg.svg";
+import userImg from "../../assets/images/defaultImg.png";
 import homeIcon from "../../assets/images/homeIcon.svg";
 import "./header.css";
-import LanguageSelector from "../Languages/LanguageSelector";
-import { CgProfile } from "react-icons/cg";
-
+import HomeLanguage from "../Languages/HomeLanguage";
+import { useUser } from "../Custom/Context/UserContext";
 
 function HeaderLogin() {
   const [loading, setLoading] = useState(false);
+  const { userData } = useUser("");
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -24,30 +24,31 @@ function HeaderLogin() {
   const handleLogout = async () => {
     try {
       setLoading(true);
-      const response = await axios.put("/auth/admin/logout", {
+      const response = await axios.post("/auth/admin/logout", null, {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
         },
       });
 
       if (response.data.statusCode === "1") {
         sessionStorage.clear();
         localStorage.clear();
-        navigate("/");
+        navigate("/auth/admin/login");
         toast.success(t("header.logoutSuccessfully"));
       }
     } catch (error) {
       toast.error(t("header.errLogoutOut"));
+      navigate("/auth/admin/login");
       setLoading(false);
     }
   };
 
   const handlepasschangeRoute = () => {
-    navigate("/User-Profile");
+    navigate("/user-profile");
   };
 
   const handleAccount = () => {
-    navigate("/account-settings");
+    navigate("#");
   };
 
   return (
@@ -56,7 +57,7 @@ function HeaderLogin() {
       sticky='top'
       style={{
         display: "flex",
-        backgroundColor: "white",
+        backgroundColor: "#ffffff",
         alignItems: "center",
         justifyContent: "flex-end",
         gap: "15px",
@@ -67,6 +68,11 @@ function HeaderLogin() {
           <div className='loader'></div>
         </div>
       )}
+
+      <Nav.Link className='icon-wrapper'>
+        <HomeLanguage />
+        <span>{t("header.language")}</span>
+      </Nav.Link>
 
       <Nav.Link className='icon-wrapper' onClick={handleAccount}>
         <IoSettingsOutline size={22} />
@@ -80,7 +86,7 @@ function HeaderLogin() {
 
       <Nav.Link className='user_settings'>
         <Dropdown>
-          <Dropdown.Toggle variant='none' style={{ border: "none", transition:"none !important" }} id='dropdownMenuButton4'>
+          <Dropdown.Toggle variant='none' style={{ border: "none", transition: "none !important" }} id='dropdownMenuButton4'>
             <span>
               <img src={userImg} alt='Profile Photo' className='accountImage' style={{ width: "40px", height: "40px", objectFit: "cover" }} />
             </span>
@@ -88,7 +94,9 @@ function HeaderLogin() {
 
           <Dropdown.Menu className={`slideDownIn animation ${document.documentElement.dir === "rtl" ? "dropdown-menu-start" : "dropdown-menu-end"}`}>
             <Dropdown.Item>
-              <span className='text-black'>{t("header.welcome")}</span>
+              <span className='text-black'>
+                {t("header.welcome")},{userData.fullName}
+              </span>
             </Dropdown.Item>
             <Dropdown.Item className='d-flex gap-2 align-items-center' onClick={handlepasschangeRoute}>
               <img src={profileIcon} alt='Profile Icon' />

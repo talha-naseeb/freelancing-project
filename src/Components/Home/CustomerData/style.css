@@ -104,24 +104,12 @@
 .customerDataTable {
   padding: 10px;
   border-radius: 20px;
-  background-color: #1b2020;
-  color: #fff;
-  box-shadow: 0 2px 2px rgba(95, 92, 92, 0.2);
 }
 
-.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled {
-  border: 1px solid #ff5757 !important ;
-  color: #ff5757 !important;
-}
-
-.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
-  border: 1px solid #ff5757 !important ;
-  color: #fff !important;
-}
 
 .filterOpenBtn {
-  color: #ff5757 !important;
-  border: 1px solid #ff5757 !important ;
+  color: #003e52 !important;
+  border: 1px solid #003e52 !important ;
 }
 
 @media (max-width: 440px) {
@@ -130,17 +118,10 @@
   }
 }
 
-/* .newComment {
-  position: absolute;
-  background-color: #474949 !important;
-  bottom: -10px;
-  left: 0;
-} */
-
 .customerFilterBtn {
-  background-color: #ff5757 !important;
-  border: #ff5757 !important;
-  color: #474949;
+  background-color: #003e52 !important;
+  border: #003e52 !important;
+  color: #fff;
   width: 100%;
   padding: 10px;
 }
@@ -150,6 +131,18 @@
   border: #474949 !important;
   color: #fff;
   padding: 10px;
-    width: 100%;
+  width: 100%;
+}
 
+.pendingtable {
+  background: white;
+  border-radius: 12px;
+  margin: auto;
+}
+
+.customer-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; 
+  border-radius: 50%;
 }

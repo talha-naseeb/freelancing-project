@@ -22,7 +22,12 @@ function Header() {
           <img src={houseImage} alt='Image Loading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className='custom-toggler' />
-        <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement={document.documentElement.dir === "rtl" ? "start" : "end"}>
+        <Navbar.Offcanvas
+          className='offcanvas-dark'
+          id={`offcanvasNavbar-expand-${expand}`}
+          aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+          placement={document.documentElement.dir === "rtl" ? "start" : "end"}
+        >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
               <img src={houseImage} alt='ImagaLoading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />

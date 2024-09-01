@@ -8,10 +8,13 @@ import CustomToaster from "./Components/Toaster/CustomToaster.jsx";
 import AllCustomersData from "./Components/Home/CustomerData/AllCustomersData.jsx";
 import CustomerData from "./Components/Home/CustomerData/CustomerData.jsx";
 import Thankyou from "./Components/Home/CustomerData/Thankyou.jsx";
-import Sidebar from "./Components/Home/SideBar/Sidebar.jsx";
 import Layout from "./Components/Home/Layout/Layout.jsx";
 import Login from "./Components/Login/Login/Login.jsx";
 import SignUp from "./Components/Login/User Register/SignUp.jsx";
+import UserProfile from "./Components/Home/UserProfile/UserProfile.jsx";
+import { UserProvider } from "./Components/Custom/Context/UserContext.jsx";
+import Home from "./Components/Dashboard/Home/Home.jsx";
+import CustomerDetails from "./Components/Home/CustomerData/CustomerDetails.jsx";
 
 function App() {
   const [isToken, setIsToken] = useState(() => !!sessionStorage.getItem("token"));
@@ -29,22 +32,27 @@ function App() {
   return (
     <BrowserRouter>
       <I18nextProvider i18n={i18n}>
-        <CustomToaster />
-        <Routes>
-          <Route path='/auth/admin/login' element={<Login onLogin={handleLogin} />} />
-          <Route path='/auth/admin/register' element={<SignUp />} />
+        <UserProvider>
+          <CustomToaster />
+          <Routes>
+            <Route path='/auth/admin/login' element={<Login onLogin={handleLogin} />} />
+            <Route path='/auth/admin/register' element={<SignUp />} />
 
-          {isToken ? (
-            <Route path='/' element={<Layout />}>
-              <Route path='/all-customers-data' element={<AllCustomersData />} />
-            </Route>
-          ) : (
-            <Route path='*' element={<Navigate to='/' />} />
-          )}
-          <Route path='/' element={<MainPage />} />
-          <Route path='/customer-Data/:customerID' element={<CustomerData />} />
-          <Route path='/thankyou-for-choosing' element={<Thankyou />} />
-        </Routes>
+            {isToken ? (
+              <Route path='/' element={<Layout />}>
+                <Route path='/home' element={<Home />} />
+                <Route path='/all-customers-data' element={<AllCustomersData />} />
+                <Route path='/customer-details/:customerID' element={<CustomerDetails />} />
+                <Route path='/user-profile' element={<UserProfile />} />
+              </Route>
+            ) : (
+              <Route path='*' element={<Navigate to='/' />} />
+            )}
+            <Route path='/' element={<MainPage />} />
+            <Route path='/customer-Data/:customerID' element={<CustomerData />} />
+            <Route path='/thankyou-for-choosing' element={<Thankyou />} />
+          </Routes>
+        </UserProvider>
       </I18nextProvider>
     </BrowserRouter>
   );

@@ -21,6 +21,7 @@ function SignUp({ onSignUp }) {
 
   const countryCodes = [
     { countryID: "+996", name: "+996 (SAR)" },
+    { countryID: "+92", name: "+92 (PAK)" },
     { countryID: "+1", name: "+1 (USA)" },
     { countryID: "+44", name: "+44 (UK)" },
     { countryID: "+971", name: "+971 (UAE)" },

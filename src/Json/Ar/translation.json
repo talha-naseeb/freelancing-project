@@ -101,7 +101,9 @@
     "validPass": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
     "sigIn": "تسجيل الدخول",
     "dontHaveAcc": "ليس لديك حساب بعد؟ سجل الآن",
-    "signUp": "التسجيل"
+    "signUp": "التسجيل",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "password": "كلمة المرور"
   },
   "SignUp": {
     "welcome": "مرحبًا بالتسجيل",
@@ -164,6 +166,46 @@
     "profileSettings": "إعدادات الملف الشخصي",
     "logout": "تسجيل الخروج",
     "logoutSuccessfully": "تم تسجيل الخروج بنجاح",
-    "errLogoutOut": "حدث خطأ أثناء تسجيل الخروج"
+    "errLogoutOut": "حدث خطأ أثناء تسجيل الخروج",
+    "language": "اللغة"
+  },
+  "userProfile": {
+    "cancel": "إلغاء",
+    "title": "الملف الشخصي",
+    "fullName": "الاسم الكامل",
+    "mobileNumber": "رقم الجوال",
+    "email": "عنوان البريد الإلكتروني",
+    "update": "تحديث",
+    "updating": "جارٍ التحديث...",
+    "updateSuccess": "تم تحديث الملف الشخصي بنجاح!",
+    "updateFailed": "فشل في تحديث الملف الشخصي.",
+    "updateError": "حدث خطأ أثناء تحديث الملف الشخصي."
+  },
+  "CustomersData": {
+    "CustomerData": "بيانات جميع العملاء",
+    "CustomerDetails": "تفاصيل العميل",
+    "Download": "تحميل ملف PDF",
+    "AdminPanel": "لوحة الإدارة"
+  },
+  "customerDetails": {
+    "title": "تفاصيل العميل",
+    "name": "الاسم",
+    "mobileNo": "رقم الهاتف المحمول",
+    "licenceNo": "رقم الترخيص",
+    "advertisementDate": "تاريخ الإعلان",
+    "propertyType": "نوع العقار",
+    "dealType": "نوع الصفقة",
+    "city": "المدينة",
+    "district": "الحي",
+    "leadingProperty": "العقار الرئيسي",
+    "propertyLocation": "موقع العقار",
+    "totalArea": "المساحة الكلية",
+    "landmark": "معلم",
+    "propertyNo": "رقم العقار",
+    "additionalDetails": "تفاصيل إضافية",
+    "transactionType": "نوع المعاملة",
+    "propertyValue": "قيمة العقار",
+    "noData": "لا توجد تفاصيل للعميل متاحة.",
+    "loadingCustomerDetails": "جاري تحميل تفاصيل العميل..."
   }
 }

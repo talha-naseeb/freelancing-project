@@ -1,0 +1,38 @@
+.userProfile-form {
+  border-radius: 6px;
+  background-color: white;
+  padding: 20px;
+}
+
+.forms {
+  border: 1px solid #ccc !important;
+  background-color: #ffffff !important;
+  color: black !important;
+  border-radius: 6px !important;
+}
+
+.UserProfileBtn {
+  background-color: #003e52 !important;
+  color: white !important;
+  border: 1px solid #003e52 !important;
+}
+.UserProfileBtn:hover {
+  background-color: #015c7a !important;
+  color: #fff !important;
+}
+
+.userCancel {
+  display: flex;
+  background-color: #fff;
+  color: #015c7a !important;
+  align-items: center;
+  border: 1px solid #015c7a !important;
+  gap: 5px;
+}
+
+.userCancel:hover {
+  background-color: #003e52 !important;
+  color: white !important;  
+  border: 1px solid #003e52;
+}
+

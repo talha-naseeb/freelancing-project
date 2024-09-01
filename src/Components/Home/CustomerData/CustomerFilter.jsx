@@ -73,11 +73,11 @@ function CustomerFilter({
         </Navbar.Toggle>
         <Navbar.Offcanvas id={`offcanvasNavbar-expand-${false}`} aria-labelledby={`offcanvasNavbarLabel-expand-${false}`} placement={document.documentElement.dir === "rtl" ? "start" : "end"}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${false}`} style={{ color: "#ff5757" }} className='fw-bold'>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${false}`} style={{ color: "#003e52" }} className='fw-bold'>
               {t("customerFilter.filter")}
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <hr style={{ margin: " auto 0", borderColor: "#ff5757" }} />
+          <hr style={{ margin: " auto 0", borderColor: "#003e52" }} />
           <Offcanvas.Body>
             <Form>
               <Form.Group className='mb-3'>

@@ -20,7 +20,7 @@ const Sidebar = ({ children }) => {
     setIsOpen(!isOpen);
   };
 
-  const sidebarBackgroundColor = "#171717";
+  const sidebarBackgroundColor = "#003E52";
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,7 +46,7 @@ const Sidebar = ({ children }) => {
             <div style={{ display: isOpen ? "block" : "none" }}>
               <span className='text-white d-flex align-items-center gap-2' style={{ fontFamily: "Italic" }}>
                 <MdOutlineAddHomeWork size={25} />
-                Real EState
+                {t("CustomersData.AdminPanel")}
               </span>
             </div>
             <div
@@ -61,7 +61,7 @@ const Sidebar = ({ children }) => {
           </div>
           {/* Upload Documents */}
 
-          <NavLink to='/uploadDoc' className='UploadMenuLink' onClick={startButton}>
+          <NavLink to='/' target="_blank" className='UploadMenuLink' onClick={startButton}>
             <div className='UploadDocMenu'>
               <div>
                 <img src={paperPLus} alt='imageLoading' />
@@ -82,12 +82,12 @@ const Sidebar = ({ children }) => {
           </NavLink>
 
           {/* Documents */}
-          <NavLink to='/recentdocuments' className='menuLinks'>
+          <NavLink to='/all-customers-data' className='menuLinks'>
             <div className='Menuicons'>
               <img src={documentIcon} alt='imageLoading' />
             </div>
             <div className='link_text' style={{ display: isOpen ? "block" : "none", fontSize: "14px" }}>
-              {t("Sidebar.Documents")}
+              {t("CustomersData.CustomerData")}
             </div>
           </NavLink>
         </div>

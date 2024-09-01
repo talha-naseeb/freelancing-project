@@ -36,28 +36,10 @@
   text-decoration: none;
 }
 .menuLinks.active {
-  background: #3a94ba;
+  background: rgb(32, 86, 111);
   color: #fff;
   transition: all 0.6s;
   border-left: 2px solid #fff;
-}
-.DeclinemenuLinks {
-  display: flex;
-  color: #fff;
-  padding: 10px 10px;
-  gap: 15px;
-  transition: all 0.5s;
-  align-items: center;
-  text-decoration: none;
-}
-.SubmenuLinks {
-  display: flex;
-  color: #fff;
-  padding: 10px 15px;
-  gap: 15px;
-  transition: all 0.5s;
-  align-items: center;
-  text-decoration: none;
 }
 
 .temp1 {
@@ -65,36 +47,14 @@
 }
 
 .menuLinks:hover {
-  background: #46494a;
+  background: rgb(32, 86, 111);
   color: #fff;
   transition: all 0.6s;
   border-left: 2px solid #fff;
-}
-.DeclinemenuLinks:hover {
-  background: #3a94ba;
-  color: #fff;
-  transition: all 0.6s;
-  border-left: 2px solid #fff;
-}
-
-.submenu-item:hover {
-  background: #3a94ba;
-  color: #fff;
-  transition: all 0.6s;
-  border-left: 2px solid #fff;
-}
-.submenu-item {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  gap: 5px;
-  transition: all 0.5s;
-  margin-left: 5px;
-  font-size: 12px;
 }
 
 .Menuactive {
-  background: #46494a;
+  background: #003342;
   color: #fff;
   border-left: 2px solid #fff;
 }

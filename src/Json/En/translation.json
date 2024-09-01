@@ -31,7 +31,7 @@
     "Codes": "Codes"
   },
   "Form": {
-    "timeDistance":"Time distance",
+    "timeDistance": "Time distance",
     "Marketerdata": "Marketer data",
     "name": "Name",
     "MobileNumber": "Mobile number",
@@ -74,7 +74,7 @@
     "dataErr": "Try again later!"
   },
   "placeholder": {
-    "timeDistance":"Enter time of distance from landmark",
+    "timeDistance": "Enter time of distance from landmark",
     "name": "Enter your name",
     "Mobile": "Enter your mobile number",
     "EnterLicense": "Enter Fall license number",
@@ -106,7 +106,6 @@
     "numericValues": "Only numeric values are allowed",
     "timeDistance": "Time distance is required"
   },
-
   "Login": {
     "loginSuccess": "Logged in successfully",
     "logErr": "Failed to log in",
@@ -121,7 +120,9 @@
     "validPass": "Password must be at least 8 characters",
     "sigIn": "Sign In",
     "signUp": "Register Now",
-    "dontHaveAcc": "Don't have an account yet ?"
+    "dontHaveAcc": "Don't have an account yet ?",
+    "passwordRequired": "Password is required",
+    "password": "Password"
   },
   "CustomerData": {
     "CustomerData": "Customer Data",
@@ -164,6 +165,46 @@
     "profileSettings": "Profile settings",
     "logout": "Logout",
     "logoutSuccessfully": "Logged out successfully",
-    "errLogoutOut": "Error logging out"
+    "errLogoutOut": "Error logging out",
+    "language": "Language"
+  },
+  "userProfile": {
+    "cancel": "Cancel",
+    "title": "User Profile",
+    "fullName": "Full Name",
+    "mobileNumber": "Mobile Number",
+    "email": "Email Address",
+    "update": "Update",
+    "updating": "Updating...",
+    "updateSuccess": "Profile updated successfully!",
+    "updateFailed": "Failed to update profile.",
+    "updateError": "An error occurred while updating the profile."
+  },
+  "CustomersData": {
+    "CustomerData": "All Customers Data",
+    "CustomerDetails":"Customer Details",
+    "Download":"Download PDF",
+    "AdminPanel":"Admin Panel"
+  },
+  "customerDetails": {
+    "title": "Customer Details",
+    "name": "Name",
+    "mobileNo": "Mobile Number",
+    "licenceNo": "Licence Number",
+    "advertisementDate": "Advertisement Date",
+    "propertyType": "Property Type",
+    "dealType": "Deal Type",
+    "city": "City",
+    "district": "District",
+    "leadingProperty": "Leading Property",
+    "propertyLocation": "Property Location",
+    "totalArea": "Total Area",
+    "landmark": "Landmark",
+    "propertyNo": "Property Number",
+    "additionalDetails": "Additional Details",
+    "transactionType": "Transaction Type",
+    "propertyValue": "Property Value",
+    "noData": "No customer details available.",
+    "loadingCustomerDetails": "Loading customer details..."
   }
 }

@@ -5,9 +5,11 @@ import { useTranslation } from "react-i18next";
 import "./style.css";
 import CustomerFilter from "./CustomerFilter";
 import noDocImg from "../../../assets/images/NoDocuments (1).png";
-import HeaderLogin from "../../Header/HeaderLogin"
 import CustomToggle from "../../Custom/CustomToggle/CustomToggle";
-import { Dropdown, Modal } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
+import { FaUser } from "react-icons/fa";
+import { BsDownload } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const AllCustomersData = () => {
   const { t } = useTranslation();
@@ -23,10 +25,10 @@ const AllCustomersData = () => {
   const [propertyType, setPropertyType] = useState("");
   const [city, setcity] = useState("");
   const [district, setDistrict] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
 
   const token = sessionStorage.getItem("token");
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -35,7 +37,7 @@ const AllCustomersData = () => {
   const fetchAllCustomersData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("v1.0/prop-api/GetAllCustomers", {
+      const response = await axios.get("/api/admin/GetAllCustomers", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -62,7 +64,7 @@ const AllCustomersData = () => {
     try {
       let response;
       if (name || mobileNo || licenseNo || propertyNo || propertyType || city || district) {
-        response = await axios.get("/v1.0/prop-api/GetAllCustomers", {
+        response = await axios.get("/api/admin/GetAllCustomers", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -77,7 +79,7 @@ const AllCustomersData = () => {
           },
         });
       }
-      setSearchResults(response.data.Data || []);
+      setSearchResults(response.data.response || []);
       setLoading(false);
     } catch (error) {
       console.error(t("dashboardCardStatuses.errorfetchingUserData"));
@@ -93,25 +95,48 @@ const AllCustomersData = () => {
     setPropertyType("");
     setcity("");
     setDistrict("");
-    // handleSearch();
     fetchAllCustomersData();
   };
 
-  const handleModalClose = () => {
-    setShowModal(false);
-    setSelectedImage(null);
+  const handleDownload = async (customerID, customerName) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`/api/prop/GenerateCustomerPdf?customerID=${customerID}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: "arraybuffer",
+      });
+
+      if (response.status === 200) {
+        const blob = new Blob([response.data], { type: "application/pdf" });
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${customerName}-document.pdf`);
+        document.body.appendChild(link);
+        link.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        toast.error(t("tableLabels.downloadError"));
+      }
+    } catch (error) {
+      console.error(t("tableLabels.downloadError"), error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleModalShow = (imageUrl) => {
-    setSelectedImage(imageUrl);
-    setShowModal(true);
+  const handleViewDetails = (customerID) => {
+    navigate(`/customer-details/${customerID}`);
   };
 
   const columns = [
-    { label: t("tableLabels.name"), key: "Name" },
-    { label: t("tableLabels.mobileNo"), key: "MobileNo" },
-    { label: t("tableLabels.licenceNo"), key: "LicenceNo" },
-    { label: t("tableLabels.AdvertisementDate"), key: "AdvertisementDate" },
+    { label: t("tableLabels.name"), key: "name" },
+    { label: t("tableLabels.mobileNo"), key: "mobileNo" },
+    { label: t("tableLabels.licenceNo"), key: "licenceNo" },
+    { label: t("tableLabels.AdvertisementDate"), key: "advertisementDate" },
     { label: t("tableLabels.propertyType"), key: "propertyType" },
     { label: t("tableLabels.propertyNo"), key: "propertyNo" },
     { label: t("tableLabels.city"), key: "city" },
@@ -148,19 +173,18 @@ const AllCustomersData = () => {
   };
 
   return (
-    <Grid className='MainDiv'>
-      <HeaderLogin />
-      <Grid className='container'>
+    <Grid className='container mt-3'>
+      <Grid>
         {/* Loader overlay */}
         {loading && (
           <div className='loader-overlay'>
-            <div className='loader'></div>
+            <div className='loader1'></div>
           </div>
         )}
 
-        <div className=' customerDataTable'>
+        <div className='py-3 p-3 container pendingtable '>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <label className='fs-16'></label>
+            <label className='fs-16'>{t("CustomersData.CustomerData")}</label>
 
             <div className='search-filters-container'>
               <CustomerFilter
@@ -190,7 +214,7 @@ const AllCustomersData = () => {
               <TableHead style={{}}>
                 <TableRow>
                   {columns.map((column) => (
-                    <TableCell key={column.label} style={{ backgroundColor: "#1b2020", color: "white" }} className='TableHeaderCell'>
+                    <TableCell key={column.label} style={{ backgroundColor: "#003e52", color: "white" }} className='TableHeaderCell'>
                       {column.label}
                     </TableCell>
                   ))}
@@ -201,7 +225,7 @@ const AllCustomersData = () => {
               <TableBody>
                 {searchResults.length === 0 && (
                   <TableRow>
-                    <td colSpan='6' className='p-5 text-center'>
+                    <td colSpan='12' className='p-5 text-center'>
                       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <img alt='imageLoading' src={noDocImg} style={{ height: "120px", width: "180px" }} />
                         {t("tableLabels.notDocsFound")}
@@ -230,19 +254,14 @@ const AllCustomersData = () => {
                       <Dropdown>
                         <Dropdown.Toggle as={CustomToggle} />
                         <Dropdown.Menu>
-                          {Object.keys(row).map((key) => {
-                            if (key.startsWith("Image") && row[key] !== null) {
-                              const imageUrl = row[key];
-                              const startIndex = imageUrl.indexOf("api-dev.yallahmotora.com");
-                              const formattedUrl = imageUrl.substring(startIndex);
-                              return (
-                                <Dropdown.Item key={key} onClick={() => handleModalShow(formattedUrl)}>
-                                  View Image
-                                </Dropdown.Item>
-                              );
-                            }
-                            return null;
-                          })}
+                          <Dropdown.Item className='d-flex align-items-center gap-2' onClick={() => handleViewDetails(row.customerID)}>
+                            <FaUser size={20} />
+                            {t("CustomersData.CustomerDetails")}
+                          </Dropdown.Item>
+                          <Dropdown.Item className='d-flex align-items-center gap-2' onClick={() => handleDownload(row.customerID, row.name)}>
+                            <BsDownload size={20} />
+                            {t("CustomersData.Download")}
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </TableCell>
@@ -264,20 +283,12 @@ const AllCustomersData = () => {
                 shape='rounded'
                 page={page + 1}
                 onChange={(event, newPage) => handleChangePage(event, newPage - 1)}
-                sx={{ "& .Mui-selected": { background: "#ff5757 !important", color: "white" } }}
+                sx={{ "& .Mui-selected": { background: "#003e52 !important", color: "white" } }}
               />
             </Stack>
           </div>
         </div>
       </Grid>
-      <Modal show={showModal} onHide={handleModalClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Image Preview</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <embed src={selectedImage} type='application/pdf' width='100%' height='500px' />
-        </Modal.Body>
-      </Modal>
     </Grid>
   );
 };

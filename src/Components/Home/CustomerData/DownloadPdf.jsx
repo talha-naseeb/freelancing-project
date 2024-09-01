@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 function DownloadPdf() {
   const customerID = sessionStorage.getItem("customerData");
-  const token = "TWFjcXVpcmVzLTg5QDg1OTg6UGFzczk4NUBAJiY=";
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ function DownloadPdf() {
   const GenerateDocument = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`/v1.0/prop-api/GenerateCustomerPdf?customerID=${customerID}`, {
+      const response = await axios.get(`/api/prop/GenerateCustomerPdf?customerID=${customerID}`, {
         responseType: "arraybuffer",
       });
       if (response.status === 200) {
@@ -23,7 +22,7 @@ function DownloadPdf() {
 
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", "document.pdf");
+        link.setAttribute("download", "Property-document.pdf");
         document.body.appendChild(link);
         link.click();
         window.URL.revokeObjectURL(url);

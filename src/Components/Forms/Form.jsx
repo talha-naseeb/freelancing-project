@@ -13,6 +13,7 @@ import { IoChevronForward } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MdDeleteOutline } from "react-icons/md";
+import { staticToken } from "../../Api/Tokens/token";
 
 function Form() {
   const fileInputRef = useRef(null);
@@ -25,7 +26,7 @@ function Form() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const token = "TWFjcXVpcmVzLTg5QDg1OTg6UGFzczk4NUBAJiY=";
+  const token = staticToken;
 
   const {
     register,
@@ -188,13 +189,17 @@ function Form() {
       Image3: trimmedImages[2] || "",
       Image4: trimmedImages[3] || "",
       Image5: trimmedImages[4] || "",
-      Image6: trimmedImages[4] || "",
-      Image7: trimmedImages[4] || "",
-      Image8: trimmedImages[4] || "",
+      Image6: trimmedImages[5] || "",
+      Image7: trimmedImages[6] || "",
+      Image8: trimmedImages[7] || "",
     };
 
     try {
-      const response = await axios.post("/v1.0/prop-api/CreateCustomer", apiData);
+      const response = await axios.post("/api/prop/CreateCustomer", apiData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (response.data.statusCode === "1") {
         const customerData = response.data.response;
         setFormStep((current) => current + 1);
@@ -256,7 +261,7 @@ function Form() {
       )}
       <Header />
       <div className='d-flex justify-content-center align-items-center mt-[10rem] bg-[#1b2020]'>
-        <form onSubmit={handleSubmit(formStep < 4 ? nextStep : onSubmit)} className='w-100 max-w-lg p-4 sm:p-[3.5rem] text-white rounded'>
+        <form onSubmit={handleSubmit(formStep < 4 ? nextStep : onSubmit)} className='w-100 max-w-lg p-4 sm:p-[3.5rem] text-white rounded custom-formen'>
           {formStep > 0 && (
             <button type='button' onClick={prevStep} className='backButton'>
               <IoChevronForward className='rtl-icon' />
@@ -265,7 +270,7 @@ function Form() {
           {formStep === 0 && (
             <div>
               <div className='d-flex justify-content-center align-items-center'>
-                <span className='text-2xl'>{t("Form.Marketerdata")}</span>
+                <span className='text-2xl text-[#ff5757]'>{t("Form.Marketerdata")}</span>
               </div>
               <div className='mb-3'>
                 <label htmlFor='Name' className='form-label text-[#ff5757]'>
@@ -312,7 +317,7 @@ function Form() {
           {formStep === 1 && (
             <div>
               <div className='d-flex justify-content-center align-items-center'>
-                <span className='text-2xl'>{t("Form.Advertisementdata")}</span>
+                <span className='text-2xl text-[#ff5757]'>{t("Form.Advertisementdata")}</span>
               </div>
               <div className='mb-3'>
                 <label htmlFor='AdvertisementDate' className='form-label text-[#ff5757]'>
@@ -363,7 +368,7 @@ function Form() {
           {formStep === 2 && (
             <div>
               <div className='d-flex justify-content-center align-items-center'>
-                <span className='text-2xl'>{t("Form.propertyInfo")}</span>
+                <span className='text-2xl text-[#ff5757]'>{t("Form.propertyInfo")}</span>
               </div>
 
               <div className='mb-3'>
@@ -402,7 +407,7 @@ function Form() {
           {formStep === 3 && (
             <div>
               <div className='d-flex justify-content-center align-items-center'>
-                <span className='text-2xl'>{t("Form.propertyInfo")}</span>
+                <span className='text-2xl text-[#ff5757]'>{t("Form.propertyInfo")}</span>
               </div>
               <div className='mb-3'>
                 <label htmlFor='PropertyLocation' className='form-label text-[#ff5757]'>
@@ -481,7 +486,7 @@ function Form() {
           {formStep === 4 && (
             <div>
               <div className='d-flex justify-content-center align-items-center'>
-                <span className='text-2xl'>{t("Form.propertyInfo")}</span>
+                <span className='text-2xl text-[#ff5757]'>{t("Form.propertyInfo")}</span>
               </div>
               <div className='mb-3'>
                 <label htmlFor='Image1' className='form-label text-[#ff5757]'>

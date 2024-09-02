@@ -214,7 +214,7 @@ const AllCustomersData = () => {
               <TableHead style={{}}>
                 <TableRow>
                   {columns.map((column) => (
-                    <TableCell key={column.label} style={{ backgroundColor: "#003e52", color: "white" }} className='TableHeaderCell'>
+                    <TableCell key={column.label} style={{ backgroundColor: "#f2652a", color: "white" }} className='TableHeaderCell'>
                       {column.label}
                     </TableCell>
                   ))}
@@ -283,7 +283,7 @@ const AllCustomersData = () => {
                 shape='rounded'
                 page={page + 1}
                 onChange={(event, newPage) => handleChangePage(event, newPage - 1)}
-                sx={{ "& .Mui-selected": { background: "#003e52 !important", color: "white" } }}
+                sx={{ "& .Mui-selected": { background: "#f2652a !important", color: "white" } }}
               />
             </Stack>
           </div>

@@ -108,8 +108,8 @@
 
 
 .filterOpenBtn {
-  color: #003e52 !important;
-  border: 1px solid #003e52 !important ;
+  color: #f2652a !important;
+  border: 1px solid #f2652a !important ;
 }
 
 @media (max-width: 440px) {
@@ -119,8 +119,8 @@
 }
 
 .customerFilterBtn {
-  background-color: #003e52 !important;
-  border: #003e52 !important;
+  background-color: #f2652a !important;
+  border: #f2652a !important;
   color: #fff;
   width: 100%;
   padding: 10px;

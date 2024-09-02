@@ -61,7 +61,7 @@ function SignUp({ onSignUp }) {
       )}
 
       <div className='login-form'>
-        <form onSubmit={handleSubmit(onSubmit)} className='main-form'>
+        <form onSubmit={handleSubmit(onSubmit)} className='main-form custom-formen'>
           <LanguageSelector />
           <div className='my-3 m-auto'>
             <h2 className='text-center'>{t("SignUp.welcome")}</h2>
@@ -120,7 +120,7 @@ function SignUp({ onSignUp }) {
                   type='text'
                   placeholder={t("SignUp.mobileNumber")}
                   className='form-control'
-                  style={{ width: "calc(70% - 40px)" }}
+                  style={{ width: "calc(80% - 40px)" }}
                   {...register("MobileNumber", {
                     required: t("SignUp.mobileNumberRequired"),
                     pattern: {

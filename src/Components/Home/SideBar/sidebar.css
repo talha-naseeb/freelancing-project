@@ -8,9 +8,11 @@
   overflow-y: auto;
 }
 .sidebar {
-  color: #fff;
+  color: black !important;
+  width: 200px;
   transition: all 0.2s;
   height: 100vh;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -25,8 +27,33 @@
 .bars {
   display: flex;
   font-size: 25px;
+  margin-left: 50px;
 }
 .menuLinks {
+  display: flex;
+  color: black;
+  padding: 10px 15px;
+  gap: 15px;
+  border-radius: 6px;
+  transition: all 0.5s;
+  align-items: center;
+  text-decoration: none;
+}
+.menuLinks.active {
+  background: #f2652a;
+  color: #fff;
+  margin: 5px 10px;
+}
+.DeclinemenuLinks {
+  display: flex;
+  color: #fff;
+  padding: 10px 10px;
+  gap: 15px;
+  transition: all 0.5s;
+  align-items: center;
+  text-decoration: none;
+}
+.SubmenuLinks {
   display: flex;
   color: #fff;
   padding: 10px 15px;
@@ -35,26 +62,40 @@
   align-items: center;
   text-decoration: none;
 }
-.menuLinks.active {
-  background: rgb(32, 86, 111);
-  color: #fff;
-  transition: all 0.6s;
-  border-left: 2px solid #fff;
-}
 
 .temp1 {
   border: none;
 }
 
 .menuLinks:hover {
-  background: rgb(32, 86, 111);
+  background: #f2652a;
+  color: #fff;
+  margin: 5px 10px;
+}
+.DeclinemenuLinks:hover {
+  background: #f2652a;
+  color: #fff;
+  border-left: 2px solid #fff;
+}
+
+.submenu-item:hover {
+  background: #f2652a;
   color: #fff;
   transition: all 0.6s;
   border-left: 2px solid #fff;
 }
+.submenu-item {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 5px;
+  transition: all 0.5s;
+  margin-left: 5px;
+  font-size: 12px;
+}
 
 .Menuactive {
-  background: #003342;
+  background: #a5d8ee;
   color: #fff;
   border-left: 2px solid #fff;
 }
@@ -70,19 +111,19 @@
 
 .UploadMenuLink {
   text-decoration: none;
-  background-color: #0979a9;
+  background-color: #f2652a;
   transition: all 0.6s;
 }
 
 .UploadDocMenu {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: #f2652a;
   padding: 10px 0px;
-  margin: 0px 10px;
   justify-content: center;
   gap: 10px;
   border-radius: 5px;
   font-weight: 600;
   transition: all 0.6s;
+  color: #fff;
 }

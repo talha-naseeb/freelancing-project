@@ -1,0 +1,41 @@
+
+.signatories-forms .accordion-item,
+.signatories-forms .accordion-header {
+  border: none !important;
+  outline: none !important;
+}
+
+.signatories-forms .accordion-button,
+.signatories-forms .accordion-body {
+  padding: 0;
+}
+
+.signatories-forms .accordion-button::not-focused {
+  border: none;
+}
+
+.signatories-forms .accordion-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0 !important;
+  margin: 0 !important;
+}
+
+.accordion-button:not(.collapsed) {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #ffffff !important;
+  color: black;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.newComment {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}

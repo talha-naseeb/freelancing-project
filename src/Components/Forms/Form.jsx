@@ -9,7 +9,7 @@ import { MdBusiness } from "react-icons/md";
 import { LuTrees } from "react-icons/lu";
 import { RiImageAddFill } from "react-icons/ri";
 import Header from "../Header/Header";
-import { IoChevronForward } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MdDeleteOutline } from "react-icons/md";
@@ -264,7 +264,7 @@ function Form() {
         <form onSubmit={handleSubmit(formStep < 4 ? nextStep : onSubmit)} className='w-100 max-w-lg p-4 sm:p-[3.5rem] text-white rounded custom-formen'>
           {formStep > 0 && (
             <button type='button' onClick={prevStep} className='backButton'>
-              <IoChevronForward className='rtl-icon' />
+              <IoIosArrowBack className='rtl-icon' />
             </button>
           )}
           {formStep === 0 && (

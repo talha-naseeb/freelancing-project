@@ -1,0 +1,269 @@
+.main-start-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  border-radius: 12px;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+@media (max-width: 576px) {
+  .start-div h3 {
+    font-size: 16px;
+  }
+  .start-div img {
+    height: 100px;
+  }
+
+  .start-text {
+    font-size: 12px;
+    width: 14rem;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .contentDiv {
+    width: 20rem !important;
+  }
+  .btn-start {
+    width: 10rem !important;
+  }
+  .start-div img {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .contentDiv {
+    width: 14rem !important;
+  }
+  .btn-start {
+    width: 10rem !important;
+  }
+  .start-div img {
+    height: 150px;
+  }
+}
+
+.start-div {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 12px 30px;
+  text-align: start;
+  border-radius: 12px;
+}
+
+@media (max-width: 576px) {
+  .start-div {
+    align-items: start;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    width: 19rem;
+    flex-wrap: nowrap;
+    flex-grow: unset;
+  }
+}
+
+/* @media  (min-width: 1024px) { */
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+  .contentDiv {
+    width: 22rem;
+  }
+  .amiconImage {
+    height: 250px;
+  }
+}
+
+.amiconImage {
+  height: 250px;
+}
+
+.start-text {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 16px 0;
+  font-weight: 500;
+}
+
+.btn-start {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  width: 20rem;
+
+  @media (max-width: 576px) {
+    width: 10rem;
+  }
+}
+
+.btn-start:hover {
+  border-radius: 5px;
+  background: #6977e2;
+}
+
+.template-card {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 270px;
+}
+
+@media (max-width: 1024px) {
+  .template-card {
+    width: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .template-card {
+    display: none;
+  }
+}
+
+.templateSection {
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  justify-content: space-between;
+  padding: 11px 24px;
+}
+
+@media (max-width: 1024px) {
+  .templateSection {
+    padding: 12px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 760px) {
+  .right-dashboard {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .showGenerateAi {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .showGenerateAi {
+    display: none;
+  }
+}
+
+.macAIHomeConditional {
+  background-image: url(../../assets/images/CondtionalBackground.svg);
+  height: 170px;
+  width: 355px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+}
+
+@media (max-width: 576px) {
+  .macAIHomeConditional p {
+    margin-bottom: 0px;
+    color: #ffffff;
+  }
+  .macAIHomeConditional {
+    background-image: url(../../assets/images/CondtionalBackground.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    width: 19rem;
+    height: 144px;
+  }
+}
+
+.macAIHomeConditional p {
+  margin: 0px;
+  color: #ffffff;
+}
+.macAIHomeConditional .content {
+  padding: 20px;
+  text-align: start;
+}
+
+.MacAiHomeButton {
+  margin-top: 1rem;
+  padding: 5px;
+  width: 100%;
+  background-color: #ffffff;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  @media (max-width: 576px) {
+    margin-top: 5px;
+  }
+}
+
+.MacAiHomeButton:hover {
+  padding: 5px;
+  width: 100%;
+  background-color: #ffffff;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+}
+
+.chart-container {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+
+.ActiveAccounts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .contentBox {
+    width: 100% !important;
+  }
+}
+
+.contentBox {
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+
+.contentBox .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.contentBox .count {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.apexcharts-toolbar{
+  display: none !important;
+}

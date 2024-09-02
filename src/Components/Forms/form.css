@@ -174,7 +174,7 @@ input[type="checkbox"]:checked {
 }
 
 
-[dir="ltr"] .rtl-icon {
+[dir="rtl"] .rtl-icon {
   transform: scaleX(-1); 
 }
 

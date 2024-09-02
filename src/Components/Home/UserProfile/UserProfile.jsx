@@ -5,6 +5,7 @@ import axios from "../../../Api/Api";
 import { toast } from "react-toastify";
 import userEditIcon from "../../../assets/images/user-edit.svg";
 import "./style.css";
+import AppUsers from "../App Users/AppUsers";
 
 function UserProfile() {
   const { t } = useTranslation();
@@ -50,7 +51,7 @@ function UserProfile() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         "/api/admin/UpdateAppUser",
         {
           AppUserID: userData.appUserID,
@@ -170,6 +171,7 @@ function UserProfile() {
           )}
         </Form>
       </div>
+      <AppUsers />
     </div>
   );
 }

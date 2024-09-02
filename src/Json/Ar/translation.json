@@ -157,7 +157,8 @@
     "OnlyView": "يمكنك فقط عرض هذا الحساب!",
     "uploadDoc": "تحميل مستند",
     "Dashboard": "لوحة التحكم",
-    "Documents": "المستندات"
+    "Documents": "المستندات",
+    "AdminPanel": "لوحة الإدارة"
   },
   "header": {
     "settings": "الإعدادات",
@@ -185,7 +186,7 @@
     "CustomerData": "بيانات جميع العملاء",
     "CustomerDetails": "تفاصيل العميل",
     "Download": "تحميل ملف PDF",
-    "AdminPanel": "لوحة الإدارة"
+    "RealEstate": "العقارات"
   },
   "customerDetails": {
     "title": "تفاصيل العميل",
@@ -207,5 +208,26 @@
     "propertyValue": "قيمة العقار",
     "noData": "لا توجد تفاصيل للعميل متاحة.",
     "loadingCustomerDetails": "جاري تحميل تفاصيل العميل..."
+  },
+  "AppUsers": {
+    "AppUsers": "مستخدمي التطبيق",
+    "updateUser": "تحديث المستخدم",
+    "Update": "تحديث"
+  },
+  "home": {
+    "welcomeAdminPanel": "مرحبًا بك في لوحة الإدارة",
+    "ManageData": "إدارة بيانات المستخدمين"
+  },
+  "chartLabels": {
+    "LandCount": "عدد الأراضي",
+    "BuildingCount": "عدد المباني",
+    "ApartmentCount": "عدد الشقق",
+    "HouseCount": "عدد المنازل",
+    "RestHouseCount": "عدد بيوت الضيافة",
+    "SaleCount": "عدد المبيعات",
+    "RentCount": "عدد الإيجارات",
+    "SellingOnLimitCount": "عدد البيع على الحد",
+    "SellingOnPriceCount": "عدد البيع على السعر",
+    "customerPropertyCounts": "عقارات العملاء حسب العدد"
   }
 }

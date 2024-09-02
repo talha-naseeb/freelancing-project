@@ -3,35 +3,31 @@ import { Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { TfiWorld } from "react-icons/tfi";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../Header/header.css"
 
-function HomeLanguage({ auth }) {
+function LanguageSelector() {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
-    sessionStorage.setItem("language", lng); 
+    sessionStorage.setItem("language", lng);
   };
 
   useEffect(() => {
-    const storedLanguage = sessionStorage.getItem("language");
-    if (storedLanguage) {
-      i18n.changeLanguage(storedLanguage);
-      document.documentElement.dir = storedLanguage === "ar" ? "rtl" : "ltr";
+    const savedLanguage = sessionStorage.getItem("language");
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage);
+      document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
     }
-  }, [i18n, auth]);
+  }, [i18n]);
 
   return (
     <Dropdown className='user_settings'>
-      <Dropdown.Toggle style={{ padding: "0px", border: "none" }} variant='none' id='dropdownMenuButton4'>
-        <div className=''>
-          <TfiWorld size={20} />
-         
-        </div>
+      <Dropdown.Toggle variant='none' id='dropdownMenuButton4' style={{ border: "none" }}>
+        <TfiWorld size={20} />
       </Dropdown.Toggle>
 
-      <Dropdown.Menu style={{ left: "auto", right: 0, minWidth: "unset", padding: "0px" }}>
+      <Dropdown.Menu style={{ left: "auto", right: 0, minWidth: "unset", padding: 0 }}>
         <Dropdown.Item onClick={() => changeLanguage("en")}>{t("languageSelector.english")}</Dropdown.Item>
         <NavDropdown.Divider />
         <Dropdown.Item onClick={() => changeLanguage("ar")}>{t("languageSelector.arabic")}</Dropdown.Item>
@@ -40,4 +36,4 @@ function HomeLanguage({ auth }) {
   );
 }
 
-export default HomeLanguage;
+export default LanguageSelector;

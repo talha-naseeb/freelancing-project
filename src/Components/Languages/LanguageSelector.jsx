@@ -10,11 +10,11 @@ function LanguageSelector() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
-    sessionStorage.setItem("selectedLanguage", lng);
+    sessionStorage.setItem("language", lng);
   };
 
   useEffect(() => {
-    const savedLanguage = sessionStorage.getItem("selectedLanguage");
+    const savedLanguage = sessionStorage.getItem("language");
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
       document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";

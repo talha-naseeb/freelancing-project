@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import homeIcon from "../../../assets/images/Home.svg";
-import documentIcon from "../../../assets/images/document-copy.svg";
-import paperPLus from "../../../assets/images/PaperPlus2.svg";
 import { useTranslation } from "react-i18next";
-import { MdOutlineAddHomeWork } from "react-icons/md";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { MdDashboard } from "react-icons/md";
+import { HiOutlineUsers } from "react-icons/hi2";
+import LogoImg from "../../../assets/images/Logo.png";
+
 import "./sidebar.css";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(window.innerWidth > 576);
   const { t } = useTranslation();
 
-  const startButton = () => {
-    localStorage.clear();
-  };
-
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-
-  const sidebarBackgroundColor = "#003E52";
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,57 +31,67 @@ const Sidebar = ({ children }) => {
     };
   }, []);
 
-  const direction = document.dir || "ltr";
-
   return (
     <div>
       <div className='Parentcontainer'>
-        <div style={{ width: isOpen ? "230px" : "50px", background: sidebarBackgroundColor }} className='sidebar'>
+        <div style={{ width: isOpen ? "230px" : "50px" }} className='sidebar'>
           <div className='top_section'>
             <div style={{ display: isOpen ? "block" : "none" }}>
-              <span className='text-white d-flex align-items-center gap-2' style={{ fontFamily: "Italic" }}>
-                <MdOutlineAddHomeWork size={25} />
-                {t("CustomersData.AdminPanel")}
-              </span>
+              <img src={LogoImg} alt='imageLoading' style={{ height: "30px", width: "130px" }} />
             </div>
-            <div
-              style={{
-                marginLeft: direction === "ltr" ? (isOpen ? "50px" : "0px") : "0px",
-                marginRight: direction === "rtl" ? (isOpen ? "50px" : "0px") : "0px",
-              }}
-              className='bars'
-            >
+            <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className='bars'>
               <FaBars onClick={toggle} style={{ cursor: "pointer" }} />
             </div>
           </div>
           {/* Upload Documents */}
 
-          <NavLink to='/' target="_blank" className='UploadMenuLink' onClick={startButton}>
-            <div className='UploadDocMenu'>
+          <NavLink className='UploadMenuLink'>
+            <div
+              className='UploadDocMenu'
+              style={{
+                margin: isOpen ? "0px 10px" : "0px",
+              }}
+            >
               <div>
-                <img src={paperPLus} alt='imageLoading' />
+                <MdOutlineAdminPanelSettings size={28} />
               </div>
-              <div className='link_text' style={{ display: isOpen ? "block" : "none", color: "#171717 " }}>
-                {t("Sidebar.uploadDoc")}
+              <div className='link_text' style={{ display: isOpen ? "block" : "none" }}>
+                {t("Sidebar.AdminPanel")}
               </div>
             </div>
           </NavLink>
 
-          <NavLink to='/home' className='menuLinks'>
+          <NavLink
+            to='/home'
+            className='menuLinks'
+            style={{
+              margin: isOpen ? "5px 10px" : "5px 0px",
+            }}
+          >
             <div className='Menuicons'>
-              <img src={homeIcon} alt='imageLoading' />
+              <MdDashboard size={28} />
             </div>
-            <div className='link_text' style={{ display: isOpen ? "block" : "none" }}>
+            <div
+              className='link_text'
+              style={{
+                display: isOpen ? "block" : "none",
+              }}
+            >
               {t("Sidebar.Dashboard")}
             </div>
           </NavLink>
 
-          {/* Documents */}
-          <NavLink to='/all-customers-data' className='menuLinks'>
+          <NavLink
+            to='/all-customers-data'
+            className='menuLinks'
+            style={{
+              margin: isOpen ? "5px 10px" : "5px 0px",
+            }}
+          >
             <div className='Menuicons'>
-              <img src={documentIcon} alt='imageLoading' />
+              <HiOutlineUsers size={25} />
             </div>
-            <div className='link_text' style={{ display: isOpen ? "block" : "none", fontSize: "14px" }}>
+            <div className='link_text' style={{ display: isOpen ? "block" : "none" }}>
               {t("CustomersData.CustomerData")}
             </div>
           </NavLink>

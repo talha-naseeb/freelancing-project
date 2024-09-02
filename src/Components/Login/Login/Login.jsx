@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import "../../Forms/form.css"
 import axios from "../../../Api/Api";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LanguageSelector from "../../Languages/LanguageSelector";
@@ -64,7 +65,7 @@ function Login({ onLogin }) {
       )}
 
       <div className='login-form'>
-        <form onSubmit={handleSubmit(onSubmit)} className='main-form'>
+        <form onSubmit={handleSubmit(onSubmit)} className='main-form custom-formen'>
           <LanguageSelector />
           <div className='my-3 m-auto'>
             <h2 className='text-center'>{t("Login.welcome")}</h2>

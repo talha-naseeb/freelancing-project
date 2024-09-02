@@ -146,7 +146,11 @@
     "documentsof": "documents of",
     "document": "document",
     "AdvertisementDate": "Advertisement Date",
-    "propertyNo": "Property Number"
+    "propertyNo": "Property Number",
+    "email": "Email Address",
+    "status": "Status",
+    "appuser": "App Users",
+    "usernotfound": "App users not found"
   },
   "customerFilter": {
     "reset": "Reset",
@@ -156,7 +160,8 @@
   "Sidebar": {
     "uploadDoc": "Upload Document",
     "Dashboard": "Dashboard",
-    "Documents": "Documents"
+    "Documents": "Documents",
+    "AdminPanel": "Admin Panel"
   },
   "header": {
     "settings": "Settings",
@@ -182,9 +187,9 @@
   },
   "CustomersData": {
     "CustomerData": "All Customers Data",
-    "CustomerDetails":"Customer Details",
-    "Download":"Download PDF",
-    "AdminPanel":"Admin Panel"
+    "CustomerDetails": "Customer Details",
+    "Download": "Download PDF",
+    "RealEstate": "Real Estate"
   },
   "customerDetails": {
     "title": "Customer Details",
@@ -206,5 +211,26 @@
     "propertyValue": "Property Value",
     "noData": "No customer details available.",
     "loadingCustomerDetails": "Loading customer details..."
+  },
+  "AppUsers": {
+    "AppUsers": "App Users",
+    "updateUser": "Update User",
+    "Update": "Update"
+  },
+  "home": {
+    "welcomeAdminPanel": "Welcome to Admin Panel",
+    "ManageData": "Manage you Users Data"
+  },
+  "chartLabels": {
+    "LandCount": "Land Count",
+    "BuildingCount": "Building Count",
+    "ApartmentCount": "Apartment Count",
+    "HouseCount": "House Count",
+    "RestHouseCount": "Rest House Count",
+    "SaleCount": "Sale Count",
+    "RentCount": "Rent Count",
+    "SellingOnLimitCount": "Selling on Limit Count",
+    "SellingOnPriceCount": "Selling on Price Count",
+    "customerPropertyCounts": "Customer Property by Counts"
   }
 }

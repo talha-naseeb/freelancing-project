@@ -178,7 +178,7 @@ const AllCustomersData = () => {
         {/* Loader overlay */}
         {loading && (
           <div className='loader-overlay'>
-            <div className='loader1'></div>
+            <div className='loader'></div>
           </div>
         )}
 
@@ -214,7 +214,15 @@ const AllCustomersData = () => {
               <TableHead style={{}}>
                 <TableRow>
                   {columns.map((column) => (
-                    <TableCell key={column.label} style={{ backgroundColor: "#f2652a", color: "white" }} className='TableHeaderCell'>
+                    <TableCell
+                      key={column.label}
+                      style={{
+                        background:
+                          "linear-gradient(41deg, rgba(0, 0, 0, 1) 2%, rgba(74, 24, 24, 1) 16%, rgba(0, 0, 0, 1) 33%, rgba(94, 33, 33, 1) 50%, rgba(0, 0, 0, 1) 63%, rgba(70, 23, 23, 1) 76%, rgba(19, 1, 1, 1) 87%)",
+                        color: "white",
+                      }}
+                      className='TableHeaderCell'
+                    >
                       {column.label}
                     </TableCell>
                   ))}
@@ -283,7 +291,7 @@ const AllCustomersData = () => {
                 shape='rounded'
                 page={page + 1}
                 onChange={(event, newPage) => handleChangePage(event, newPage - 1)}
-                sx={{ "& .Mui-selected": { background: "#f2652a !important", color: "white" } }}
+                sx={{ "& .Mui-selected": { background: "rgb(74, 24, 24) !important", color: "white" } }}
               />
             </Stack>
           </div>

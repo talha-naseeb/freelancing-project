@@ -55,8 +55,9 @@ const AdminCounts = () => {
   const chartOptions = {
     series: customerCounts,
     chart: {
-      width: 700,
+      width: 100,
       type: "pie",
+      height: 400,
     },
     dataLabels: {
       enabled: false,
@@ -65,7 +66,7 @@ const AdminCounts = () => {
     labels: [t("Land"), t("Building"), t("Apartment"), t("House"), t("Rest House"), t("Sale"), t("Rent"), t("Selling on Limit"), t("Selling on Price")],
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 2560,
         options: {
           chart: {
             width: 400,
@@ -111,10 +112,10 @@ const AdminCounts = () => {
     <div className='my-3' style={{ overflow: "hidden" }}>
       {isLoading && (
         <div className='loader-overlay'>
-          <div className='loader1'></div>
+          <div className='loader'></div>
         </div>
       )}
-      <ReactApexChart options={chartOptions} series={customerCounts} type='pie' />
+      <ReactApexChart options={chartOptions} series={customerCounts} type='pie'  />
     </div>
   );
 };

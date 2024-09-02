@@ -70,7 +70,7 @@ const ChartData = () => {
         enabled: false,
       },
     },
-    colors: ["#003e52"],
+    colors: ["rgba(74, 24, 24, 1)"],
     dataLabels: {
       enabled: false,
     },
@@ -95,7 +95,7 @@ const ChartData = () => {
 
   return (
     <div className='chart-container'>
-      <ReactApexChart options={chartOptions} series={chartOptions.series} type='line' height={350} />
+      <ReactApexChart options={chartOptions} series={chartOptions.series} type='bar' height={350} />
     </div>
   );
 };

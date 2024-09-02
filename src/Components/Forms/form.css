@@ -13,6 +13,10 @@
   padding: 10px !important;
   border-radius: 5px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   color: #474949 !important;
 }
 
@@ -44,7 +48,7 @@
 }
 
 .custom-formen .form-label {
-  color: white ;
+  color: white;
 }
 
 .custom-formen span {
@@ -94,6 +98,7 @@
   gap: 5px;
   align-items: center;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .images-size {
@@ -135,14 +140,15 @@
   cursor: pointer;
 }
 
-input[type="checkbox"]:not(.checked) {
+input[type="radio"]:not(.checked) {
   border-color: #ffffff;
   background-color: transparent;
   box-shadow: none;
   height: 20px;
+  width: 20px;
 }
 
-input[type="checkbox"]:checked {
+input[type="radio"]:checked {
   box-shadow: none;
   background-color: #ff5757;
   border: none;
@@ -154,9 +160,11 @@ input[type="checkbox"]:checked {
   align-items: center;
   flex-direction: column;
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: none !important;
+  border-bottom: none !important;
   cursor: pointer;
 }
+
 
 .ThankyouServices:hover {
   color: #ff5757;
@@ -173,11 +181,9 @@ input[type="checkbox"]:checked {
   border-radius: 5px;
 }
 
-
 [dir="rtl"] .rtl-icon {
-  transform: scaleX(-1); 
+  transform: scaleX(-1);
 }
-
 
 .image-wrapper {
   position: relative;
@@ -203,7 +209,19 @@ input[type="checkbox"]:checked {
   padding: 2px;
 }
 
-.delete-button:hover{
+.delete-button:hover {
   background-color: #883030;
   color: #ffffff;
+}
+
+.custom-formen .TransactionType {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  color: white !important;
+  background-color: #474949 !important;
+  border: #474949 !important;
+}
+
+.TransactionType label {
+  color: white !important;
 }

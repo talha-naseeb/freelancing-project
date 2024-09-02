@@ -102,7 +102,7 @@ function Login({ onLogin }) {
                   onClick={togglePasswordVisibility}
                   className='eye-icon'
                   style={{
-                    cursor: "pointer",
+                    cursor: "pointer"
                   }}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}

@@ -8,7 +8,8 @@
   overflow-y: auto;
 }
 .sidebar {
-  color: black !important;
+  color: #ffffff !important;
+  background: linear-gradient(41deg, rgba(0, 0, 0, 1) 2%, rgba(74, 24, 24, 1) 16%, rgba(0, 0, 0, 1) 33%, rgba(94, 33, 33, 1) 50%, rgba(0, 0, 0, 1) 63%, rgba(70, 23, 23, 1) 76%, rgba(19, 1, 1, 1) 87%);
   width: 200px;
   transition: all 0.2s;
   height: 100vh;
@@ -31,7 +32,7 @@
 }
 .menuLinks {
   display: flex;
-  color: black;
+  color: #ffffff;
   padding: 10px 15px;
   gap: 15px;
   border-radius: 6px;
@@ -40,7 +41,8 @@
   text-decoration: none;
 }
 .menuLinks.active {
-  background: #f2652a;
+  background: rgb(101 88 88 / 50%);
+  backdrop-filter: blur(10px);
   color: #fff;
   margin: 5px 10px;
 }
@@ -68,18 +70,21 @@
 }
 
 .menuLinks:hover {
-  background: #f2652a;
+  background: rgb(101 88 88 / 50%);
+  backdrop-filter: blur(10px);
   color: #fff;
   margin: 5px 10px;
 }
 .DeclinemenuLinks:hover {
-  background: #f2652a;
+  background: rgb(101 88 88 / 50%);
+  backdrop-filter: blur(10px);
   color: #fff;
   border-left: 2px solid #fff;
 }
 
 .submenu-item:hover {
-  background: #f2652a;
+  background: rgb(101 88 88 / 50%);
+  backdrop-filter: blur(10px);
   color: #fff;
   transition: all 0.6s;
   border-left: 2px solid #fff;
@@ -111,14 +116,15 @@
 
 .UploadMenuLink {
   text-decoration: none;
-  background-color: #f2652a;
+  background-color: #432121;
   transition: all 0.6s;
 }
 
 .UploadDocMenu {
   display: flex;
   align-items: center;
-  background-color: #f2652a;
+  background: rgb(101 88 88 / 50%);
+  backdrop-filter: blur(10px);
   padding: 10px 0px;
   justify-content: center;
   gap: 10px;

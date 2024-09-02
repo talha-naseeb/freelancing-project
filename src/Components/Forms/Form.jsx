@@ -14,6 +14,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MdDeleteOutline } from "react-icons/md";
 import { staticToken } from "../../Api/Tokens/token";
+import { FaRegHandshake } from "react-icons/fa6";
+import { PiUserSwitchDuotone } from "react-icons/pi";
+import { GrFormNextLink } from "react-icons/gr";
 
 function Form() {
   const fileInputRef = useRef(null);
@@ -169,10 +172,14 @@ function Form() {
   };
 
   const handleSelectLandmark = (landmark) => {
-    setSelectedLandmark(landmark);
-    setValue("Landmark", landmark, { shouldValidate: true });
+    if (selectedLandmark === landmark) {
+      setSelectedLandmark("");
+      setValue("Landmark", "");
+    } else {
+      setSelectedLandmark(landmark);
+      setValue("Landmark", landmark, { shouldValidate: true });
+    }
 
-    // Save to localStorage
     saveToLocalStorage(formData, formStep);
   };
 
@@ -278,7 +285,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("Name", { required: t("fieldErrors.name") })} id='Name' placeholder={t("placeholder.name")} className='form-control' />
-                {errors.name && <span>{errors.name.message}</span>}
+                {errors.Name && <span>{errors.Name.message}</span>} {/* Corrected: errors.Name */}
               </div>
               <div className='mb-3'>
                 <label htmlFor='MobileNo' className='form-label text-[#ff5757]'>
@@ -297,7 +304,7 @@ function Form() {
                   placeholder={t("placeholder.Mobile")}
                   className='form-control'
                 />
-                {errors.mobileNumber && <span>{errors.mobileNumber.message}</span>}
+                {errors.MobileNo && <span>{errors.MobileNo.message}</span>}
               </div>
 
               <div className='mb-3'>
@@ -306,10 +313,11 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("LicenceNo", { required: t("fieldErrors.EnterLicense") })} id='LicenceNo' placeholder={t("placeholder.EnterLicense")} className='form-control' />
-                {errors.fallLicenseNumber && <span>{errors.fallLicenseNumber.message}</span>}
+                {errors.LicenceNo && <span>{errors.LicenceNo.message}</span>}
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
+                <GrFormNextLink size={30} className="rtl-icon" />
               </button>
             </div>
           )}
@@ -361,6 +369,7 @@ function Form() {
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
+                <GrFormNextLink size={30} className="rtl-icon" />
               </button>
             </div>
           )}
@@ -400,6 +409,7 @@ function Form() {
 
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
+                <GrFormNextLink size={30} className="rtl-icon" />
               </button>
             </div>
           )}
@@ -479,6 +489,7 @@ function Form() {
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
+                <GrFormNextLink size={30} className="rtl-icon" />
               </button>
             </div>
           )}
@@ -493,6 +504,8 @@ function Form() {
                   {t("Form.PropertyPicture")}
                   <span className='SpanRequired'>*</span>
                 </label>
+                <br />
+                <label style={{ fontSize: "10px" }}>{t("Form.imageErr")}</label>
                 <div className='Image-Input' onClick={handleIconClick}>
                   <RiImageAddFill size={25} />
                   {t("Form.Addpicproperty")}
@@ -517,11 +530,43 @@ function Form() {
                 <input {...register("AdditionalDetails")} id='AdditionalDetails' placeholder={t("placeholder.AdditionalDetails")} className='form-control' />
               </div>
 
-              <div className='mb-3'>
-                <label htmlFor='TransactionType' className='form-label text-[#ff5757]'>
+              {/* TransactionType radio buttons */}
+              <div className='mb-3 '>
+                <label className='form-label text-[#ff5757]'>
                   {t("Form.TransactionType")}
+                  <span className='SpanRequired'>*</span>
                 </label>
-                <input {...register("TransactionType")} id='TransactionType' placeholder={t("Form.TransactionType")} className='form-control' />
+                <div className='TransactionType'>
+                  <div className='form-check p-0 d-flex align-items-center mb-3'>
+                    <input
+                      className='form-check-input mx-2'
+                      type='radio'
+                      value='Selling on the limit'
+                      {...register("TransactionType", { required: t("fieldErrors.TransactionType") })}
+                      id='TransactionTypeLimit'
+                    />
+                    <label className='form-check-label' htmlFor='TransactionTypeLimit'>
+                      {t("Form.SellingOnLimit")}
+                    </label>
+                    <FaRegHandshake className='mx-2' size={30} />
+                  </div>
+
+                  <div className='form-check p-0 d-flex align-items-center'>
+                    <input
+                      className='form-check-input mx-2'
+                      type='radio'
+                      value='Selling on price'
+                      {...register("TransactionType", { required: t("fieldErrors.TransactionType") })}
+                      id='TransactionTypePrice'
+                    />
+                    <label className='form-check-label' htmlFor='TransactionTypePrice'>
+                      {t("Form.SellingOnPrice")}
+                    </label>
+                    <PiUserSwitchDuotone className='mx-2' size={30} />
+                  </div>
+                </div>
+
+                {errors.TransactionType?.type === "required" && <span>{errors.TransactionType.message}</span>}
               </div>
 
               <div className='mb-3'>

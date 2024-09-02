@@ -24,7 +24,7 @@ function LanguageSelector() {
   return (
     <Dropdown className='user_settings'>
       <Dropdown.Toggle variant='none' id='dropdownMenuButton4' style={{ border: "none" }}>
-        <TfiWorld size={20} />
+        <TfiWorld size={20} style={{color:"#ffffff"}} />
       </Dropdown.Toggle>
 
       <Dropdown.Menu style={{ left: "auto", right: 0, minWidth: "unset", padding: 0 }}>

@@ -4,26 +4,21 @@ import "./home.css";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import ReactApexChart from "react-apexcharts";
-import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import AdminCounts from "./AdminCounts";
 import ChartData from "./ChartData";
 import CountsData from "./CountsData";
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
   const [userData, setUserData] = useState(null);
-  const [customerCounts, setCustomerCounts] = useState(null);
-  const [adminCounts, setAdminCounts] = useState(null);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
+      setLoading(true);
       try {
         const response = await axios.get("/api/admin/GetAppUserProfile", {
           headers: {
@@ -35,13 +30,12 @@ const Home = () => {
         }
       } catch (error) {
         handleApiError(error);
+      } finally {
+        setLoading(false);
       }
     };
 
-
-
     fetchUserProfile();
-    setLoading(false);
   }, [token]);
 
   const handleApiError = (error) => {
@@ -55,10 +49,13 @@ const Home = () => {
     }
   };
 
-
-
   return (
     <div className='my-3 gap-3 container align-items-center justify-content-center'>
+      {loading && (
+        <div className='loader-overlay'>
+          <div className='loader'></div>
+        </div>
+      )}
       <div className='main-start-div'>
         <div className='start-div'>
           <div className='contentDiv'>

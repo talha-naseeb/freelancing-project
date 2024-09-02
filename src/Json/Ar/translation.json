@@ -51,8 +51,10 @@
     "DownloadPDF": "تحميل PDF",
     "Advertisementdata": "بيانات الإعلان",
     "Back": "العودة",
-    "imageErr": "يمكنك إضافة ما يصل إلى 5 صور فقط.",
-    "dataErr": "حاول مرة أخرى لاحقًا!"
+    "imageErr": "يمكنك إضافة ما يصل إلى 8 صور فقط.",
+    "dataErr": "حاول مرة أخرى لاحقًا!",
+    "SellingOnLimit": "البيع على الحد",
+    "SellingOnPrice": "البيع على السعر"
   },
   "placeholder": {
     "timeDistance": "أدخل مدة المسافة من المعلم",

@@ -70,8 +70,10 @@
     "DownloadPDF": "Download PDF",
     "Advertisementdata": "Advertisement data",
     "Back": "Back",
-    "imageErr": "You can only add up to 5 images.",
-    "dataErr": "Try again later!"
+    "imageErr": "You can only add up to 8 images.",
+    "dataErr": "Try again later!",
+    "SellingOnLimit": " Selling on the limit",
+    "SellingOnPrice": "Selling on price"
   },
   "placeholder": {
     "timeDistance": "Enter time of distance from landmark",
@@ -85,7 +87,7 @@
     "area": "Enter total area",
     "Displayed": "Displayed Property Number",
     "AdditionalDetails": " Add additional details",
-    "Addselling": "Add selling value of the property' "
+    "Addselling": "Add selling value of the property"
   },
   "fieldErrors": {
     "name": "Name is required",

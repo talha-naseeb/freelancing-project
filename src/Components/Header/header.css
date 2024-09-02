@@ -58,7 +58,7 @@
   display: flex !important;
   align-items: center !important;
   gap: 5px !important;
-  color: #1b2020 !important;
+  color: #ffffff !important;
   text-decoration: none !important;
   transition: none !important;
 }
@@ -67,7 +67,7 @@
 }
 
 .icon-wrapper span {
-  color: #1b2020 !important;
+  color: #ffffff !important;
 }
 
 /* Add media query to hide span elements on small devices */

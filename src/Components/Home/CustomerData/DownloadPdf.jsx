@@ -26,7 +26,7 @@ function DownloadPdf() {
         document.body.appendChild(link);
         link.click();
         window.URL.revokeObjectURL(url);
-        navigate("/thankyou-for-choosing");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
@@ -44,7 +44,7 @@ function DownloadPdf() {
       )}
       <div className='ThankyouServices' onClick={GenerateDocument}>
         <IoIosCloudDownload size={50} />
-        <p>{t("Form.DownloadPDF")}</p>
+        <h1>{t("Form.DownloadPDF")}</h1>
       </div>
     </div>
   );

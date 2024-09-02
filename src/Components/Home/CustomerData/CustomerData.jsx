@@ -3,6 +3,7 @@ import "./style.css";
 import { useTranslation } from "react-i18next";
 import Header from "../../Header/Header";
 import DownloadPdf from "./DownloadPdf";
+import Thankyou from "./Thankyou";
 
 function CustomerData() {
   const { t } = useTranslation();
@@ -12,11 +13,7 @@ function CustomerData() {
         <Header />
         <div className='d-flex justify-content-center align-items-center mt-[10rem] bg-[#1b2020]'>
           <div className='container '>
-            <div className='d-flex align-items-center justify-content-center'>
-              <label className='text-[#ff5757]' style={{ fontSize: "20px", fontWeight: "500" }}>
-                {t("CustomerData.CustomerData")}
-              </label>
-            </div>
+            <Thankyou />
             <DownloadPdf />
           </div>
         </div>

@@ -53,21 +53,23 @@ function HeaderLogin() {
 
   return (
     <Navbar
-      className='fixed-top shadow-sm'
+      className='fixed-top shadow-sm main-form'
       sticky='top'
       style={{
         display: "flex",
-        backgroundColor: "#ffffff",
+        background:
+          "linear-gradient(41deg, rgba(0, 0, 0, 1) 2%, rgba(74, 24, 24, 1) 16%, rgba(0, 0, 0, 1) 33%, rgba(94, 33, 33, 1) 50%, rgba(0, 0, 0, 1) 63%, rgba(70, 23, 23, 1) 76%, rgba(19, 1, 1, 1) 87%)",
         alignItems: "center",
         justifyContent: "flex-end",
         gap: "15px",
+        width: "98%",
       }}
     >
-      {loading && (
+      {/* {loading && (
         <div className='loader-overlay'>
           <div className='loader'></div>
         </div>
-      )}
+      )} */}
 
       <Nav.Link className='icon-wrapper'>
         <HomeLanguage />

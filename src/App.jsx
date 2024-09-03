@@ -15,6 +15,8 @@ import UserProfile from "./Components/Home/UserProfile/UserProfile.jsx";
 import { UserProvider } from "./Components/Custom/Context/UserContext.jsx";
 import Home from "./Components/Dashboard/Home/Home.jsx";
 import CustomerDetails from "./Components/Home/CustomerData/CustomerDetails.jsx";
+import AboutUs from "./Components/Pages/About us/AboutUs.jsx";
+import ContactUs from "./Components/Pages/Contact us/ContactUs.jsx";
 
 function App() {
   const [isToken, setIsToken] = useState(() => !!sessionStorage.getItem("token"));
@@ -35,8 +37,8 @@ function App() {
         <UserProvider>
           <CustomToaster />
           <Routes>
-            <Route path='/auth/admin/login' element={<Login onLogin={handleLogin} />} />
-            <Route path='/auth/admin/register' element={<SignUp />} />
+            <Route path='/auth-admin-login' element={<Login onLogin={handleLogin} />} />
+            <Route path='/auth-admin-register' element={<SignUp />} />
 
             {isToken ? (
               <Route path='/' element={<Layout />}>
@@ -50,7 +52,8 @@ function App() {
             )}
             <Route path='/' element={<MainPage />} />
             <Route path='/customer-Data/:customerID' element={<CustomerData />} />
-            <Route path='/thankyou-for-choosing' element={<Thankyou />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/contact-us' element={<ContactUs />} />
           </Routes>
         </UserProvider>
       </I18nextProvider>

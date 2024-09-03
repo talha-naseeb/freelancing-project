@@ -107,7 +107,7 @@ function UserProfile() {
     <div className='container mt-4'>
       {loading && (
         <div className='loader-overlay'>
-          <div className='loader1'></div>
+          <div className='loader'></div>
         </div>
       )}
 

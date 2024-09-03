@@ -33,12 +33,12 @@ function HeaderLogin() {
       if (response.data.statusCode === "1") {
         sessionStorage.clear();
         localStorage.clear();
-        navigate("/auth/admin/login");
+        navigate("/auth-admin-login");
         toast.success(t("header.logoutSuccessfully"));
       }
     } catch (error) {
       toast.error(t("header.errLogoutOut"));
-      navigate("/auth/admin/login");
+      navigate("/auth-admin-login");
       setLoading(false);
     }
   };

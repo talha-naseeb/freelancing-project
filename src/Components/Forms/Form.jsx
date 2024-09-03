@@ -349,6 +349,7 @@ function Form() {
                   <option value='Commercial'>{t("Form.Apartment")}</option>
                   <option value='Commercial'>{t("Form.House")}</option>
                   <option value='Commercial'>{t("Form.Renthouse")}</option>
+                  <option value='Commercial'>{t("Form.Resthouse")}</option>
                 </select>
                 {errors.PropertyType?.type === "required" && <span>{errors.PropertyType.message}</span>}
               </div>

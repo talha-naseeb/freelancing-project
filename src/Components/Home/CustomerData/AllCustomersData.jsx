@@ -144,28 +144,23 @@ const AllCustomersData = () => {
     { label: "", key: "actions" },
   ];
 
-  const formatDate = (dateString) => {
-    const timestamp = parseInt(dateString.match(/\d+/)[0]);
+const formatDate = (dateString) => {
+  if (!dateString) return "";
 
-    if (isNaN(timestamp)) {
-      return "";
-    }
-    const date = new Date(timestamp);
+  const date = new Date(dateString);
 
-    // Format the date
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    let hours = date.getHours();
-    const minutes = date.getMinutes();
+  if (isNaN(date.getTime())) {
+    return ""; 
+  }
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(date);
 
-    const ampm = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12 || 12;
+  return formattedDate;
+};
 
-    const formattedMinutes = (minutes < 10 ? "0" : "") + minutes;
-
-    return `${day}/${month}/${year} - ${hours}:${formattedMinutes} ${ampm}`;
-  };
 
   const handleCellClick = (event) => {
     const cell = event.target;

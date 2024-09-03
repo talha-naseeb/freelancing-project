@@ -42,11 +42,11 @@ function Header() {
                 {t("landingHome.home")}
               </Nav.Link>
 
-              <Nav.Link as={Link} to='#' className={location.pathname === "/all-customers-data" ? "navLinks active" : "navLinks"}>
+              <Nav.Link as={Link} to='/about-us' className={location.pathname === "/about-us" ? "navLinks active" : "navLinks"}>
                 {t("landingHome.aboutUs")}
               </Nav.Link>
 
-              <Nav.Link as={Link} to='#' className={location.pathname === "/contactUs" ? "navLinks active" : "navLinks"}>
+              <Nav.Link as={Link} to='/contact-us' className={location.pathname === "/contact-us" ? "navLinks active" : "navLinks"}>
                 {t("landingHome.contactUs")}
               </Nav.Link>
             </Nav>

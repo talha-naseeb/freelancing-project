@@ -47,6 +47,7 @@
     "Apartment": "Apartment",
     "House": "House",
     "Renthouse": "Rent house",
+    "Resthouse": "Rest house",
     "propertyType": "Property type",
     "date": "Date",
     "City": "City",
@@ -234,5 +235,24 @@
     "SellingOnLimitCount": "Selling on Limit Count",
     "SellingOnPriceCount": "Selling on Price Count",
     "customerPropertyCounts": "Customer Property by Counts"
+  },
+  "aboutUs": {
+    "title": "About Us",
+    "description": "We are a leading company specializing in property management and client services, offering top-notch solutions for all your real estate needs.",
+    "ourMissionTitle": "Our Mission",
+    "ourMissionDescription": "Our mission is to provide exceptional property management services, ensuring our clients find the perfect property and enjoy a seamless experience.",
+    "ourVisionTitle": "Our Vision",
+    "ourVisionDescription": "Our vision is to be the most trusted and reliable property management company, recognized for our commitment to client satisfaction and innovation."
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "description": "We'd love to hear from you! Reach out to us via phone, email, or visit our office for any inquiries or support.",
+    "contactInformationTitle": "Contact Information",
+    "phoneLabel": "Phone",
+    "phone": "+1-234-567-890",
+    "emailLabel": "Email",
+    "email": "info@property-client.com",
+    "officeLocationTitle": "Office Location",
+    "officeAddress": "123 Property Lane, Real Estate City, Country"
   }
 }

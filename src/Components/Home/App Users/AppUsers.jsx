@@ -98,7 +98,7 @@ function AppUsers() {
     <div className='mt-3'>
       {loading && (
         <div className='loader-overlay'>
-          <div className='loader1'></div>
+          <div className='loader'></div>
         </div>
       )}
 

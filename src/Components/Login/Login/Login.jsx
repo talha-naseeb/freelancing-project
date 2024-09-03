@@ -117,7 +117,7 @@ function Login({ onLogin }) {
             </div>
             {/* <div style={{ marginTop: "30px" }} className='d-flex align-items-center justify-content-start'>
               {t("Login.dontHaveAcc")}
-              <Nav.Link as={Link} to='/auth/admin/register' className='link-item fw-bold px-2'>
+              <Nav.Link as={Link} to='/auth-admin-register' className='link-item fw-bold px-2'>
                 {t("Login.signUp")}
               </Nav.Link>
             </div> */}

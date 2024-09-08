@@ -39,7 +39,13 @@ const Sidebar = ({ children }) => {
             <div style={{ display: isOpen ? "block" : "none" }}>
               <img src={LogoImg} alt='imageLoading' style={{ height: "30px", width: "130px" }} />
             </div>
-            <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className='bars'>
+            <div
+              style={{
+                marginLeft: document.dir === "ltr" ? (isOpen ? "50px" : "0px") : "0px",
+                marginRight: document.dir === "rtl" ? (isOpen ? "50px" : "0px") : "0px",
+              }}
+              className='bars'
+            >
               <FaBars onClick={toggle} style={{ cursor: "pointer" }} />
             </div>
           </div>

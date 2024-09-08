@@ -1,0 +1,8 @@
+/* Custom class for dropdown items */
+.custom-dropdown-item {
+  color: white !important; /* Default white text */
+}
+
+.custom-dropdown-item:hover {
+  color: black !important; /* Text turns black on hover */
+}

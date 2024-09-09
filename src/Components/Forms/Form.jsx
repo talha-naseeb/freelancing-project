@@ -285,7 +285,7 @@ function Form() {
                   <span className='SpanRequired'>*</span>
                 </label>
                 <input {...register("Name", { required: t("fieldErrors.name") })} id='Name' placeholder={t("placeholder.name")} className='form-control' />
-                {errors.Name && <span>{errors.Name.message}</span>} {/* Corrected: errors.Name */}
+                {errors.Name && <span>{errors.Name.message}</span>}
               </div>
               <div className='mb-3'>
                 <label htmlFor='MobileNo' className='form-label text-[#ff5757]'>
@@ -317,7 +317,7 @@ function Form() {
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
-                <GrFormNextLink size={30} className="rtl-icon" />
+                <GrFormNextLink size={30} className='rtl-icon' />
               </button>
             </div>
           )}
@@ -370,7 +370,7 @@ function Form() {
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
-                <GrFormNextLink size={30} className="rtl-icon" />
+                <GrFormNextLink size={30} className='rtl-icon' />
               </button>
             </div>
           )}
@@ -386,7 +386,19 @@ function Form() {
                   {t("Form.City")}
                   <span className='SpanRequired'>*</span>
                 </label>
-                <input {...register("City", { required: t("fieldErrors.city") })} id='City' placeholder={t("placeholder.city")} className='form-control' />
+                <select {...register("City", { required: t("fieldErrors.city") })} id='City' className='form-select'>
+                  <option value='' disabled>
+                    {t("placeholder.city")}
+                  </option>
+                  <option value='Riyadh'>Riyadh</option>
+                  <option value='Al-Kharj'>Al-Kharj</option>
+                  <option value='Dharma'>Dharma</option>
+                  <option value='Al-Muzahmiyya'>Al-Muzahmiyya</option>
+                  <option value='Diriyah'>Diriyah</option>
+                  <option value='Huraymila'>Huraymila</option>
+                  <option value='Thadiq'>Thadiq</option>
+                  <option value='Shaqra'>Shaqra</option>
+                </select>
                 {errors.City?.type === "required" && <span>{errors.City.message}</span>}
               </div>
 
@@ -410,7 +422,7 @@ function Form() {
 
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
-                <GrFormNextLink size={30} className="rtl-icon" />
+                <GrFormNextLink size={30} className='rtl-icon' />
               </button>
             </div>
           )}
@@ -471,12 +483,16 @@ function Form() {
               {/* Conditionally render the Time Distance field */}
               {selectedLandmark && (
                 <div className='mb-3'>
-                  <label htmlFor='TimeDistance' className='form-label text-[#ff5757]'>
+                  <label htmlFor='LandMarkTimeDistance' className='form-label text-[#ff5757]'>
                     {t("Form.timeDistance")}
-                    <span className='SpanRequired'>*</span>
                   </label>
-                  <input {...register("TimeDistance", { required: t("fieldErrors.timeDistance") })} id='TimeDistance' placeholder={t("placeholder.timeDistance")} className='form-control' />
-                  {errors.TimeDistance?.type === "required" && <span>{errors.TimeDistance.message}</span>}
+                  <input
+                    {...register("LandMarkTimeDistance", { required: t("fieldErrors.timeDistance") })}
+                    id='LandMarkTimeDistance'
+                    placeholder={t("placeholder.timeDistance")}
+                    className='form-control'
+                  />
+                  {/* {errors.LandMarkTimeDistance?.type === "required" && <span>{errors.LandMarkTimeDistance.message}</span>} */}
                 </div>
               )}
 
@@ -490,7 +506,7 @@ function Form() {
               </div>
               <button type='submit' className='nextButton'>
                 {t("Form.Next")}
-                <GrFormNextLink size={30} className="rtl-icon" />
+                <GrFormNextLink size={30} className='rtl-icon' />
               </button>
             </div>
           )}

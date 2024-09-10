@@ -9,6 +9,8 @@ import axios from "../../../Api/Api";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LanguageSelector from "../../Languages/LanguageSelector";
 import { staticToken } from "../../../Api/Tokens/token";
+import { Nav } from "react-bootstrap";
+
 
 function Login({ onLogin }) {
   const navigate = useNavigate();
@@ -115,12 +117,12 @@ function Login({ onLogin }) {
                 {t("Login.sigIn")}
               </button>
             </div>
-            {/* <div style={{ marginTop: "30px" }} className='d-flex align-items-center justify-content-start'>
+            <div style={{ marginTop: "30px" }} className='d-flex align-items-center justify-content-start'>
               {t("Login.dontHaveAcc")}
               <Nav.Link as={Link} to='/auth-admin-register' className='link-item fw-bold px-2'>
                 {t("Login.signUp")}
               </Nav.Link>
-            </div> */}
+            </div>
           </div>
         </form>
       </div>

@@ -18,7 +18,7 @@ function Header() {
   return (
     <Navbar expand={expand} className='bg-inherit fixed-top headerStyles' sticky='top'>
       <Container fluid>
-        <Navbar.Brand as={Link} to='/home'>
+        <Navbar.Brand as={Link} to='/'>
           <img src={houseImage} alt='Image Loading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className='custom-toggler' />
@@ -30,7 +30,9 @@ function Header() {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-              <img src={houseImage} alt='ImagaLoading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />
+              <Nav.Link as={Link} to='/auth-admin-login' className={location.pathname === "/" ? "navLinks active" : "navLinks"}>
+                <img src={houseImage} alt='ImagaLoading' style={{ height: "50px", width: "50px", filter: "brightness(0) invert(1)" }} />
+              </Nav.Link>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>

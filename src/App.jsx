@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./Components/Languages/i18n.js";
 import "./App.css";
@@ -7,6 +7,7 @@ import MainPage from "./Components/MainPage/MainPage.jsx";
 import CustomToaster from "./Components/Toaster/CustomToaster.jsx";
 import AllCustomersData from "./Components/Home/CustomerData/AllCustomersData.jsx";
 import CustomerData from "./Components/Home/CustomerData/CustomerData.jsx";
+import Thankyou from "./Components/Home/CustomerData/Thankyou.jsx";
 import Layout from "./Components/Home/Layout/Layout.jsx";
 import Login from "./Components/Login/Login/Login.jsx";
 import SignUp from "./Components/Login/User Register/SignUp.jsx";
@@ -36,10 +37,9 @@ function App() {
         <UserProvider>
           <CustomToaster />
           <Routes>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/customer-Data/:customerID' element={<CustomerData />} />
-            <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/auth-admin-login' element={<Login onLogin={handleLogin} />} />
+            <Route path='/auth-admin-register' element={<SignUp />} />
+
             {isToken ? (
               <Route path='/' element={<Layout />}>
                 <Route path='/home' element={<Home />} />
@@ -48,10 +48,12 @@ function App() {
                 <Route path='/user-profile' element={<UserProfile />} />
               </Route>
             ) : (
-              <Route path='*' element={<MainPage />} />
+              <Route path='*' element={<Navigate to='/' />} />
             )}
-            <Route path='/auth-admin-login' element={<Login onLogin={handleLogin} />} />
-            <Route path='/auth-admin-register' element={<SignUp />} />
+            <Route path='/' element={<MainPage />} />
+            <Route path='/customer-Data/:customerID' element={<CustomerData />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/contact-us' element={<ContactUs />} />
           </Routes>
         </UserProvider>
       </I18nextProvider>

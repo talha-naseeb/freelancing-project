@@ -37,9 +37,10 @@ function App() {
         <UserProvider>
           <CustomToaster />
           <Routes>
-            <Route path='/auth-admin-login' element={<Login onLogin={handleLogin} />} />
-            <Route path='/auth-admin-register' element={<SignUp />} />
-
+            <Route path='/' element={<MainPage />} />
+            <Route path='/customer-Data/:customerID' element={<CustomerData />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/contact-us' element={<ContactUs />} />
             {isToken ? (
               <Route path='/' element={<Layout />}>
                 <Route path='/home' element={<Home />} />
@@ -48,12 +49,10 @@ function App() {
                 <Route path='/user-profile' element={<UserProfile />} />
               </Route>
             ) : (
-              <Route path='*' element={<Navigate to='/' />} />
+              <Route path='*' element={<MainPage />} />
             )}
-            <Route path='/' element={<MainPage />} />
-            <Route path='/customer-Data/:customerID' element={<CustomerData />} />
-            <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/contact-us' element={<ContactUs />} />
+            <Route path='/auth-admin-login' element={<Login onLogin={handleLogin} />} />
+            <Route path='/auth-admin-register' element={<SignUp />} />
           </Routes>
         </UserProvider>
       </I18nextProvider>

@@ -486,12 +486,7 @@ function Form() {
                   <label htmlFor='LandMarkTimeDistance' className='form-label text-[#ff5757]'>
                     {t("Form.timeDistance")}
                   </label>
-                  <input
-                    {...register("LandMarkTimeDistance", { required: t("fieldErrors.timeDistance") })}
-                    id='LandMarkTimeDistance'
-                    placeholder={t("placeholder.timeDistance")}
-                    className='form-control'
-                  />
+                  <input {...register("LandMarkTimeDistance")} id='LandMarkTimeDistance' placeholder={t("placeholder.timeDistance")} className='form-control' />
                   {/* {errors.LandMarkTimeDistance?.type === "required" && <span>{errors.LandMarkTimeDistance.message}</span>} */}
                 </div>
               )}

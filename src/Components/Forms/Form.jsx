@@ -259,6 +259,30 @@ function Form() {
 
   const today = new Date().toISOString().split("T")[0];
 
+const cities = [
+  t("cities.Riyadh"),
+  t("cities.Mecca"),
+  t("cities.Medina"),
+  t("cities.Dammam"),
+  t("cities.Khobar"),
+  t("cities.Dhahran"),
+  t("cities.Jeddah"),
+  t("cities.Buraidah"),
+  t("cities.Abha"),
+  t("cities.Jazan"),
+  t("cities.Hail"),
+  t("cities.Tabuk"),
+  t("cities.Najran"),
+  t("cities.Sakaka"),
+  t("cities.AlBahah"),
+  t("cities.Arar"),
+  t("cities.Taif"),
+  t("cities.HafarAlBatin"),
+  t("cities.AlAhsa"),
+  t("cities.Diriyah"),
+  t("cities.AlUla"),
+];
+
   return (
     <div className='MainDiv'>
       {loading && (
@@ -390,14 +414,11 @@ function Form() {
                   <option value='' disabled>
                     {t("placeholder.city")}
                   </option>
-                  <option value='Riyadh'>Riyadh</option>
-                  <option value='Al-Kharj'>Al-Kharj</option>
-                  <option value='Dharma'>Dharma</option>
-                  <option value='Al-Muzahmiyya'>Al-Muzahmiyya</option>
-                  <option value='Diriyah'>Diriyah</option>
-                  <option value='Huraymila'>Huraymila</option>
-                  <option value='Thadiq'>Thadiq</option>
-                  <option value='Shaqra'>Shaqra</option>
+                  {cities.map((city, index) => (
+                    <option key={index} value={city}>
+                      {city}
+                    </option>
+                  ))}
                 </select>
                 {errors.City?.type === "required" && <span>{errors.City.message}</span>}
               </div>

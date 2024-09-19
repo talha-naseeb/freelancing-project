@@ -1,0 +1,356 @@
+/* First section */
+.container1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/0.png"); /* Image for the first section */
+  background-size: cover;
+  background-position: center;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    width: 80%;
+    padding: 20px;
+    background-color: #12d0ff;
+    transform: rotate(-30deg);
+    text-align: center;
+    color: #ffffff;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Second section */
+.second-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/3.png"); 
+  background-size: cover;
+  background-position: center;
+}
+
+.second-background-image {
+  width: 100%;
+  height: 50%;
+  background-color: rgb(243, 239, 235);
+}
+
+.second-overlay {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.second-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.second-container p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Third section (Property Summary) */
+.third-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #f7f7f7;
+  position: relative;
+  height: 100vh;
+}
+
+.summary-content {
+  width: 50%;
+  padding: 20px;
+  text-align: left;
+}
+
+.summary-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sub-title {
+  color: #b0b0b0;
+  margin-bottom: 20px;
+}
+
+.summary-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.summary-list li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.summary-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.summary-number.odd  {
+  color: #00aaff ;
+}
+
+.summary-number.even  {
+  color: black ;
+}
+.summary-label.odd  {
+  color: #00aaff ;
+}
+
+.summary-label.even  {
+  color: black ;
+}
+
+
+.summary-image {
+  width: 45%;
+}
+
+.summary-image img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.highlight-box {
+  position: absolute;
+  background-color: #12d0ff;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  top: 60%;
+  left: 50%;
+}
+
+.highlight-box p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price-info span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Fourth section (About the Marketer) */
+.fourth-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+
+.marketer-details {
+  width: 50%;
+  text-align: left;
+  padding: 20px;
+}
+
+.marketer-details h2 {
+  font-size: 2rem;
+  color: #12d0ff;
+  font-weight: bold;
+}
+
+.line {
+  width: 30%;
+  height: 3px;
+  background-color: #002b6e;
+  margin: 10px 0;
+}
+
+.marketer-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.marketer-details li {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.detail-name {
+  color: #002b6e;
+  font-weight: bold;
+}
+
+.detail-phone {
+  color: #12d0ff;
+  font-weight: bold;
+}
+
+.detail-fail {
+  color: #686767;
+  font-weight: bold;
+}
+
+.marketer-image {
+  width: 45%;
+}
+
+.marketer-image img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+/* Final Section */
+.final-section {
+  background-color: #f7f7f7;
+}
+
+/* Featured image with overlay */
+.featured-image {
+  position: relative;
+  width: 100%;
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.featured-overlay {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: white;
+  background: rgba(108 100 100 / 13%);
+  backdrop-filter: blur(3px);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(226, 214, 214, 0.2);
+}
+
+.featured-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Thumbnail row */
+.thumbnail-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  position: relative;
+  width: 30%;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+}
+
+.thumb-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* About the property */
+.about-property {
+  background-color: #262f3a;
+  color: white;
+  padding: 40px;
+  margin-top: 40px;
+  position: relative;
+  text-align: end;
+}
+
+.about-property h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.property-name {
+  color: #00aaff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.about-property p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.property-details {
+  list-style-type: none;
+  padding: 0;
+}
+
+.property-details li {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.icon-location {
+  background: url("/assets/icons/location.png") no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-phone {
+  background: url("/assets/icons/phone.png") no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-fall {
+  background: url("/assets/icons/fall.png") no-repeat;
+  width: 24px;
+  height: 24px;
+}

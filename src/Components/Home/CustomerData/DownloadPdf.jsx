@@ -51,46 +51,47 @@ function DownloadPdf() {
     fetchCustomerData();
   }, [customerID]);
 
+  const generatePDF = () => {
+    setLoading(true);
 
-const generatePDF = () => {
-  setLoading(true);
+    const imgWidth = 210;
+    const imgHeight = 190;
 
-  const imgWidth = 210;
-  const imgHeight = 190; 
+    const captureSection = (elementId) => {
+      const input = document.getElementById(elementId);
+      return html2canvas(input, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        return imgData;
+      });
+    };
 
-  const captureSection = (elementId) => {
-    const input = document.getElementById(elementId);
-    return html2canvas(input, {
-      scale: 2, 
-      useCORS: true, 
-      allowTaint: true, 
-      logging: false, 
-    }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      return imgData;
+    // Capture all 5 sections individually
+    Promise.all([captureSection("section1"), captureSection("section2"), captureSection("section3"), captureSection("section4"), captureSection("section5")]).then((sectionImages) => {
+      const pdf = new jsPDF("p", "mm", [imgWidth, imgHeight]);
+
+      // Add each section to a separate page
+      sectionImages.forEach((imageData, index) => {
+        if (index !== 0) pdf.addPage();
+        pdf.addImage(imageData, "PNG", 0, 0, imgWidth, imgHeight);
+      });
+
+      // Save the PDF
+      pdf.save(`${customerData.name}-property-details.pdf`);
+      setLoading(false);
+      navigate("/");
+      sessionStorage.removeItem("customerData");
     });
   };
 
-  // Capture all 5 sections individually
-  Promise.all([captureSection("section1"), captureSection("section2"), captureSection("section3"), captureSection("section4"), captureSection("section5")]).then((sectionImages) => {
-    const pdf = new jsPDF("p", "mm", [imgWidth, imgHeight]); 
-
-    // Add each section to a separate page
-    sectionImages.forEach((imageData, index) => {
-      if (index !== 0) pdf.addPage();
-      pdf.addImage(imageData, "PNG", 0, 0, imgWidth, imgHeight);
-    });
-
-    // Save the PDF
-    pdf.save(`${customerData.name}-property-details.pdf`);
-    setLoading(false);
-  });
-};
-
-
-
-
-
+  setTimeout(() => {
+    navigate("/");
+    sessionStorage.removeItem("customerData");
+  }, 5000); // 5 second delay
 
   const summaryItems = [
     { id: 1, label: "City", value: customerData.city },
@@ -116,8 +117,8 @@ const generatePDF = () => {
         </div>
       </div>
 
-      <div id='pdf-content' dir="ltr" style={{ position: "absolute", top: "-10000px", left: "-10000px" }}>
-      {/* <div id='pdf-content'> */}
+      <div id='pdf-content' dir='ltr' style={{ position: "absolute", top: "-10000px", left: "-10000px" }}>
+        {/* <div id='pdf-content'> */}
         <div id='section1' className='container1'>
           <div className='background-image'></div>
           <div className='overlay'>

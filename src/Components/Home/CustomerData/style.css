@@ -148,6 +148,6 @@
 }
 
 
-body, #pdf-content {
+#pdf-content {
   direction: ltr;
 }

@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url("../../assets/images/0.png"); /* Image for the first section */
+  background-image: url("../../assets/images/0.png");
   background-size: cover;
   background-position: center;
 }
@@ -13,15 +13,15 @@
   height: 100%;
 }
 .overlay {
-    position: absolute;
-    top: 60%;
-    left: 0%;
-    width: 80%;
-    padding: 20px;
-    background-color: #12d0ff;
-    transform: rotate(-30deg);
-    text-align: center;
-    color: #ffffff;
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  width: 80%;
+  padding: 20px;
+  background-color: #12d0ff;
+  transform: rotate(-30deg);
+  text-align: center;
+  color: #ffffff;
 }
 
 h1 {
@@ -35,7 +35,7 @@ h1 {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url("../../assets/images/3.png"); 
+  background-image: url("../../assets/images/3.png");
   background-size: cover;
   background-position: center;
 }
@@ -97,13 +97,12 @@ h1 {
   padding: 0;
 }
 
-
 .summary-list li {
   margin: 10px 0;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
 }
 
 .summary-number {
@@ -112,21 +111,20 @@ h1 {
   margin-right: 10px;
 }
 
-.summary-number.odd  {
-  color: #00aaff ;
+.summary-number.odd {
+  color: #00aaff;
 }
 
-.summary-number.even  {
-  color: black ;
+.summary-number.even {
+  color: black;
 }
-.summary-label.odd  {
-  color: #00aaff ;
-}
-
-.summary-label.even  {
-  color: black ;
+.summary-label.odd {
+  color: #00aaff;
 }
 
+.summary-label.even {
+  color: black;
+}
 
 .summary-image {
   width: 45%;
@@ -145,8 +143,22 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   text-align: left;
-  top: 60%;
-  left: 50%;
+  top: 70%;
+  left: 40%;
+}
+@media screen and (max-width: 568px) {
+  .highlight-box {
+    width: 55%;
+    position: absolute;
+    background-color: #12d0ff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    top: 80%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .highlight-box p {
@@ -242,8 +254,8 @@ h1 {
 
 .featured-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100vh;
+  background-size: cover;
 }
 
 .featured-overlay {
@@ -299,7 +311,7 @@ h1 {
   padding: 40px;
   margin-top: 40px;
   position: relative;
-  text-align: end;
+  text-align: start;
 }
 
 .about-property h2 {
@@ -329,7 +341,7 @@ h1 {
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
   gap: 10px;
 }
 

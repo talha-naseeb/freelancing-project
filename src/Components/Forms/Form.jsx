@@ -76,32 +76,32 @@ function Form() {
     localStorage.setItem("selectedLandmark", selectedLandmark);
   };
 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files.length > 0) {
-      const filesArray = Array.from(event.target.files);
-      const availableSlots = 8 - selectedImages.length;
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files.length > 0) {
+  //     const filesArray = Array.from(event.target.files);
+  //     const availableSlots = 8 - selectedImages.length;
 
-      if (filesArray.length > availableSlots) {
-        toast.error(t("Form.imageErr"));
-        return;
-      }
+  //     if (filesArray.length > availableSlots) {
+  //       toast.error(t("Form.imageErr"));
+  //       return;
+  //     }
 
-      const conversionPromises = filesArray.map((file) => convertToBase64(file));
+  //     const conversionPromises = filesArray.map((file) => convertToBase64(file));
 
-      Promise.all(conversionPromises)
-        .then((base64Files) => {
-          const newDisplayedImages = [...displayedImages, ...base64Files];
-          const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
+  //     Promise.all(conversionPromises)
+  //       .then((base64Files) => {
+  //         const newDisplayedImages = [...displayedImages, ...base64Files];
+  //         const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
 
-          setDisplayedImages(newDisplayedImages);
-          setSelectedImages([...selectedImages, ...trimmedImages]);
+  //         setDisplayedImages(newDisplayedImages);
+  //         setSelectedImages([...selectedImages, ...trimmedImages]);
 
-          // Save to localStorage
-          saveToLocalStorage({ ...formData }, formStep);
-        })
-        .catch((error) => console.error("Error converting files to base64:", error));
-    }
-  };
+  //         // Save to localStorage
+  //         saveToLocalStorage({ ...formData }, formStep);
+  //       })
+  //       .catch((error) => console.error("Error converting files to base64:", error));
+  //   }
+  // };
 
   // const onImageChange = (event) => {
   //   if (event.target.files && event.target.files.length > 0) {
@@ -129,6 +129,68 @@ function Form() {
   //       .catch((error) => console.error("Error converting files to base64:", error));
   //   }
   // };
+
+const onImageChange = (event) => {
+  if (event.target.files && event.target.files.length > 0) {
+    const filesArray = Array.from(event.target.files);
+    const availableSlots = 8 - selectedImages.length;
+
+    if (filesArray.length > availableSlots) {
+      toast.error(t("Form.imageErr"));
+      return;
+    }
+
+    const resizeImage = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const maxWidth = 480;
+            let width = img.width;
+            let height = img.height;
+
+            // Resize only if the image is larger than 480px in width
+            if (width > maxWidth) {
+              height *= maxWidth / width;
+              width = maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Convert the canvas back to a base64 image
+            const resizedBase64 = canvas.toDataURL("image/jpeg");
+            resolve(resizedBase64);
+          };
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    };
+
+    const conversionPromises = filesArray.map((file) => resizeImage(file));
+
+    Promise.all(conversionPromises)
+      .then((base64Files) => {
+        const newDisplayedImages = [...displayedImages, ...base64Files];
+        const trimmedImages = base64Files.map((image) => image.replace(/^data:image\/[a-z]+;base64,/, "").replace(/,/g, ""));
+
+        setDisplayedImages(newDisplayedImages);
+        setSelectedImages([...selectedImages, ...trimmedImages]);
+
+        // Save to localStorage
+        saveToLocalStorage({ ...formData }, formStep);
+      })
+      .catch((error) => console.error("Error resizing images:", error));
+  }
+};
+
 
   function convertToBase64(file) {
     return new Promise((resolve, reject) => {

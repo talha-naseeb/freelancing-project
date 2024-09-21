@@ -146,3 +146,8 @@
   object-fit: cover; 
   border-radius: 50%;
 }
+
+
+body, #pdf-content {
+  direction: ltr;
+}

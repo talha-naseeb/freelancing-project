@@ -45,7 +45,7 @@ function Test() {
   return (
     <>
       {/* First section */}
-      <div className='container'>
+      <div className='container1'>
         <div className='background-image'></div>
         <div className='overlay'>
           <h1>{title}</h1>

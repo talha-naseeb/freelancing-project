@@ -12,8 +12,6 @@ import RightImage from "../../../assets/images/2.png";
 import leftImage from "../../../assets/images/2.png";
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { IoListCircleOutline } from "react-icons/io5";
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
 
 function CustomerDetails() {
   const { t } = useTranslation();
@@ -36,6 +34,7 @@ function CustomerDetails() {
 
         setCustomerData(response.data.response);
         const data = response.data.response;
+        sessionStorage.setItem("pdfName", data.name);
         const imageArray = [
           { id: 1, url: data.image1 },
           { id: 2, url: data.image2 },
@@ -45,7 +44,7 @@ function CustomerDetails() {
           { id: 6, url: data.image6 },
           { id: 7, url: data.image7 },
           { id: 8, url: data.image8 },
-        ].filter((image) => image.url !== null); // Filter out null images
+        ].filter((image) => image.url !== null); 
 
         setImages(imageArray.slice(0, 8));
       } catch (error) {
@@ -58,39 +57,37 @@ function CustomerDetails() {
     fetchCustomerDetails();
   }, [customerID, token]);
 
-  const generatePDF = () => {
+  const customerPdfName = sessionStorage.getItem("pdfName");
+
+  const generatePDF = async () => {
     setLoading(true);
-
-    const imgWidth = 210;
-    const imgHeight = 190;
-
-    const captureSection = (elementId) => {
-      const input = document.getElementById(elementId);
-      return html2canvas(input, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-      }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        return imgData;
-      });
-    };
-
-    // Capture all 5 sections individually
-    Promise.all([captureSection("section1"), captureSection("section2"), captureSection("section3"), captureSection("section4"), captureSection("section5")]).then((sectionImages) => {
-      const pdf = new jsPDF("p", "mm", [imgWidth, imgHeight]);
-
-      // Add each section to a separate page
-      sectionImages.forEach((imageData, index) => {
-        if (index !== 0) pdf.addPage();
-        pdf.addImage(imageData, "PNG", 0, 0, imgWidth, imgHeight);
+    try {
+      const response = await axios.get(`/api/prop/GenerateCustomerPdf?customerID=${customerID}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: "arraybuffer",
       });
 
-      // Save the PDF
-      pdf.save(`${customerData.name}-property-details.pdf`);
+      if (response.status === 200) {
+        const blob = new Blob([response.data], { type: "application/pdf" });
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${customerPdfName}-document.pdf`);
+        document.body.appendChild(link);
+        link.click();
+        window.URL.revokeObjectURL(url);
+        sessionStorage.removeItem("pdfName");
+      } else {
+        toast.error(t("tableLabels.downloadError"));
+      }
+    } catch (error) {
+      console.error(t("tableLabels.downloadError"), error);
+    } finally {
       setLoading(false);
-    });
+    }
   };
 
   const summaryItems = [

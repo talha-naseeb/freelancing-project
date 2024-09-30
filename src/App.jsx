@@ -16,8 +16,6 @@ import Home from "./Components/Dashboard/Home/Home.jsx";
 import CustomerDetails from "./Components/Home/CustomerData/CustomerDetails.jsx";
 import AboutUs from "./Components/Pages/About us/AboutUs.jsx";
 import ContactUs from "./Components/Pages/Contact us/ContactUs.jsx";
-import Test from "./Components/Pages/Test.jsx";
-import DownloadPdf from "./Components/Home/CustomerData/DownloadPdf.jsx";
 
 function App() {
   const [isToken, setIsToken] = useState(() => !!sessionStorage.getItem("token"));
@@ -55,7 +53,6 @@ function App() {
             <Route path='/customer-Data/:customerID' element={<CustomerData />} />
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/contact-us' element={<ContactUs />} />
-            {/* <Route path='/test' element={<DownloadPdf />} /> */}
           </Routes>
         </UserProvider>
       </I18nextProvider>

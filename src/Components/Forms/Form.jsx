@@ -431,7 +431,7 @@ const cities = [
                     {t("Form.selectProperty")}
                   </option>
                   <option value='Residential'>{t("Form.land")}</option>
-                  <option value='building'>{t("Form.building")}</option>
+                  <option value='Building'>{t("Form.building")}</option>
                   <option value='Apartment'>{t("Form.Apartment")}</option>
                   <option value='House'>{t("Form.House")}</option>
                   <option value='Renthouse'>{t("Form.Renthouse")}</option>

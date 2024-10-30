@@ -51,11 +51,12 @@ function UserProfile() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.put(
+      const response = await axios.post(
         "/api/admin/UpdateAppUser",
         {
           AppUserID: userData.appUserID,
           FullName: fullName,
+          EmailID: email,
           CountryCode: countryCode,
           MobileNumber: mobileNumber,
         },
